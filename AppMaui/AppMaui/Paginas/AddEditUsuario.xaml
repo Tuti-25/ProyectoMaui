@@ -4,9 +4,6 @@
              x:Class="AppMaui.Paginas.AddEditUsuario"
              Title="AddEditUsuario">
 
-
-
-
     <VerticalStackLayout Padding="10">
         <Entry x:Name="txtIdUsuario"
                Placeholder="IdUsuario">

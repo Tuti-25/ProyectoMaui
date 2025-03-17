@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Paginas.LoginOrSignUp"
+             Title="LoginOrSignUp"
+             BackgroundColor="#212429">
+    <ScrollView>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150" />
+            <RowDefinition Height="320" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="150" />
+
+        </Grid.RowDefinitions>
+
+        <FlexLayout Grid.Row="0" 
+                    BackgroundColor="#212429" 
+                    Direction="Row" 
+                    AlignItems="Center" 
+                    JustifyContent="Center">
+            <Image Source="emergency_two.png" 
+                   HeightRequest="60" 
+                   WidthRequest="60">
+            </Image>
+            <Label Text="Salvatierra" 
+                   TextColor="White" 
+                   FontSize="25"
+                   Margin="4,0,0,0"
+                  FontAttributes="Bold"
+                   CharacterSpacing="1">
+            </Label>
+        </FlexLayout>
+
+        <FlexLayout Grid.Row="1"
+                    BackgroundColor="#212429" 
+                    Direction="Row"
+                    AlignItems="Center">
+        </FlexLayout>
+
+        <FlexLayout Grid.Row="2" 
+                    BackgroundColor="#212429"
+                    Direction="Column" 
+                    HorizontalOptions="Center"
+                    >
+            <Button Text="Log In"
+                    Background="#ffffff"
+                    TextColor="#4781d1"
+                    FontSize="20"
+                    HeightRequest="30"
+                    WidthRequest="200"
+                    Padding="-20"
+                    Margin="0,12,0,8">
+            </Button>
+            <Button Text="Sign In"
+                    Background="#24272c"
+                    TextColor="#ffffffff"
+                    FontSize="20"
+                    HeightRequest="25"
+                    WidthRequest="200"
+                
+                    BorderColor="#111"
+                    BorderWidth="2"
+                    Padding="-20">
+            </Button>
+        </FlexLayout>
+        <FlexLayout Grid.Row="3" 
+                    BackgroundColor="#212429" 
+                    Direction="Row" 
+                    HorizontalOptions="Center"
+                    >
+            <Label Text="By signing up, you agree to the policy and rule 3.4, allowing us to collect your credit card information. "
+                   LineBreakMode="WordWrap"
+                   MaximumWidthRequest="200"
+                   TextColor="#5b5e65"
+                   HorizontalTextAlignment="Center">
+           
+            </Label>
+        </FlexLayout>
+    </Grid>
+    </ScrollView>
+</ContentPage>

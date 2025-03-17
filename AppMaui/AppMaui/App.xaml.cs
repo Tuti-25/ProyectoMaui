@@ -1,11 +1,13 @@
-﻿namespace AppMaui
+﻿using AppMaui.Paginas;
+
+namespace AppMaui
 {
     public partial class App : Application
     {
-        public App(MainPage mainPage)
+        public App()
         {
             InitializeComponent();
-            MainPage = mainPage;
+            MainPage = new NavigationPage(new LoginOrSignUp());
         }
     }
 }
