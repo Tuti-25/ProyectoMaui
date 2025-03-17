@@ -20,27 +20,27 @@ namespace Demo.ApiClient2
 
         public async Task<List<Usuario>?> GetUsuarios()
         {
-            return await _httpClient.GetFromJsonAsync<List<Usuario>>("api/usuarios");
+            return await _httpClient.GetFromJsonAsync<List<Usuario>>("api/user");
         }
 
         public async Task<Usuario?> GetById(int idusuario)
         {
-            return await _httpClient.GetFromJsonAsync<Usuario>($"api/usuarios/{idusuario}");
+            return await _httpClient.GetFromJsonAsync<Usuario>($"api/user/{idusuario}");
         }
 
         public async Task SaveUsuario(Usuario usuario)
         {
-            await _httpClient.PostAsJsonAsync("api/usuarios", usuario);
+            await _httpClient.PostAsJsonAsync("api/user", usuario);
         }
 
         public async Task UpdateUsuario(Usuario usuario)
         {
-            await _httpClient.PutAsJsonAsync("api/usuarios", usuario);
+            await _httpClient.PutAsJsonAsync("api/user", usuario);
         }
 
         public async Task DeleteUsuario(int idusuario)
         {
-            await _httpClient.DeleteAsync($"api/usuarios/{idusuario}");
+            await _httpClient.DeleteAsync($"api/user/{idusuario}");
         }
     }
 }
