@@ -1,15 +1,14 @@
-﻿using AplicacionMaui.Paginas;
+﻿
+using AplicacionMaui.Paginas;
 
 namespace AplicacionMaui
 {
     public partial class App : Application
     {
-        public App(MainPage mainPage)
+        public App(TestConnection testConnection)
         {
             InitializeComponent();
-
-            MainPage = mainPage;
-
+            TestConnection = testConnection;
         }
 
     }

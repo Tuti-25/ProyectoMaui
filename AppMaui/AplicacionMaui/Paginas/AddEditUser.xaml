@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicacionMaui.Paginas.AddEditUser"
+             Title="AddEditUser">
+    <VerticalStackLayout Padding="10">
+        <Entry x:Name="txtNombreUsuario"
+               Placeholder="Nombre">
+        </Entry>
+        <Entry x:Name="txtApellidoUsuario"
+               Placeholder="Apellido">
+        </Entry>
+        <Entry x:Name="txtCorreoUsuario"
+               Placeholder="Correo">
+        </Entry>
+        <Entry x:Name="txtTelefonoUsuario"
+               Placeholder="Telefono">
+        </Entry>
+        <Entry x:Name="txtUbicacionUsuario"
+               Placeholder="Ubicacion">
+        </Entry>
+        <Entry x:Name="txtCedulaUsuario"
+               Placeholder="Cedula">
+        </Entry>
+        <Entry x:Name="txtContrasenaUsuario"
+               Placeholder="Contrasena">
+        </Entry>
+        <Entry x:Name="txtIdRol"
+               Placeholder="Rol">
+        </Entry>
+        <Button x:Name="btnGuardar"
+                Text="Guardar"
+                Margin="0,20"
+                Clicked="btnGuardar_Clicked">
+        </Button>
+        <Button x:Name="btnCancelar"
+                Text="Cancel"
+                Clicked="btnCancelar_Clicked">
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>

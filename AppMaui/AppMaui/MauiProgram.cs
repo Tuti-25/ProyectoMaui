@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Demo.ApiClient2.IoC;
-using AplicacionMaui.Paginas;
-
-namespace AplicacionMaui
+namespace AppMaui
 {
     public static class MauiProgram
     {
@@ -17,7 +15,7 @@ namespace AplicacionMaui
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
             builder.Services.AddDemoApiClientService(x => x.ApiBaseAddress = "http://localhost:5151");
-            builder.Services.AddTransient<TestConnection>();
+            builder.Services.AddTransient<MainPage>();
 
 #if DEBUG
             builder.Logging.AddDebug();

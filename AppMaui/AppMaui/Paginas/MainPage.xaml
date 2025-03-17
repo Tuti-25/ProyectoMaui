@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AplicacionMaui.MainPage">
+             x:Class="AppMaui.MainPage">
 
     <FlexLayout Direction="Column">
         <HorizontalStackLayout Padding="10" 
                                FlexLayout.Basis="120">
-            <Button x:Name="btnAgregar" Text="Agregar" Margin="0,0,10,0" ></Button>
-            <Button x:Name="btnVerUsuarios" Text="Ver usuarios"></Button>
+            <Button x:Name="BtnAgregrar" Text="Agregar" Margin="0,0,10,0" Clicked="BtnAgregrar_Clicked"></Button>
+            <Button x:Name="btnVerUsuarios" Text="Ver usuarios" Clicked="btnVerUsuarios_Clicked"></Button>
         </HorizontalStackLayout>
-        <ListView x:Name="UsuarioListView" FlexLayout.Grow="1" HasUnevenRows="True">
+        <ListView x:Name="UsuarioListView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="UsuarioListView_ItemTapped">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <VerticalStackLayout Padding="5">
                             <Label Text="{Binding NombreUsuario}"
-                                   FontSize="17"
+                                   FontSize="18"
                                    FontAttributes="Bold">
                             </Label>
                             <Grid>
