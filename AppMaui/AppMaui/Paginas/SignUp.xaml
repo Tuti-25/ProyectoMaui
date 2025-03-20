@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMaui.Paginas.Login">
-
+             x:Class="AppMaui.Paginas.SignUp"
+            >
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
@@ -30,11 +30,11 @@
                            CharacterSpacing="1" />
                 </HorizontalStackLayout>
 
-                <Label Text="Log in to continue"
+                <Label Text="Sign up to continue"
                        FontAttributes="Bold"
                        FontSize="15"
                        >
-                    
+
                 </Label>
             </FlexLayout>
 
@@ -58,37 +58,29 @@
 
                     </Entry>
                 </Frame>
-                <Frame BorderColor="#111" 
-                       CornerRadius="3" 
-                       HeightRequest="40" 
-                       Padding="0"
+                <HorizontalStackLayout Margin="0,3,0,0"
+                                       HorizontalOptions="Center">
+                    <Label Margin="0,3,0,0"
+                       LineBreakMode="WordWrap"
                        MaximumWidthRequest="200"
-                       Margin="0,5,0,0">
-                    <Entry Placeholder="Enter your password"
-                           IsPassword="True"
-                           PlaceholderColor="#777"
-                           VerticalOptions="Center"
-                           Margin="10,0" 
-                           WidthRequest="190"
-                           x:Name="ContarsenaLogin" 
-                           Visual="Material"
-                           >
-                    </Entry>
-                </Frame>
-                <HorizontalStackLayout Margin="7,3,40,0"
-                                       HorizontalOptions="Center"
-                                       >
-                    <CheckBox
-                      Color="#888"
-                        >
+                       HorizontalTextAlignment="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="By signing up, you agree to the policy and rule 3.4, allowing us to collect your" 
+                                  TextColor="#5b5e65"
+                                  FontSize="9"
+                                  >
+                                </Span>
+                                <Span Text=" credit card information." 
+                                  TextColor="#1765d1"
+                                        FontSize="10"
+                                  TextDecorations="Underline"
+                                  >
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
 
-                    </CheckBox>
-                    <Label Text="Remember me" 
-                           VerticalOptions="Center"/>
-                    <Image Source="mark.png"
-                           WidthRequest="15"
-                           Margin="5,4,0,0">
-                    </Image>
                 </HorizontalStackLayout>
             </FlexLayout>
             <FlexLayout Grid.Row="2"
@@ -97,12 +89,15 @@
                         VerticalOptions="Start"
                         Direction="Column">
                 <Button BackgroundColor="#0b65e3"
-                        Text="Continue"
+                        Text="Sign Up"
                         TextColor="#ffffff"
-                        MaximumHeightRequest="40"
+                        MaximumHeightRequest="43"
                         WidthRequest="200"
                         CornerRadius="3"
-                        Margin="0,3,0,0">
+                        Margin="0,3,0,0"
+                        FontAttributes="Bold"
+                        x:Name="BtnSignUp2"
+                        Clicked="BtnSignUp2_Clicked">
                 </Button>
                 <Label Text="Or continue with:"
                        TextColor="#666"
@@ -153,17 +148,11 @@
                              >
 
                 </ImageButton>
-                <HorizontalStackLayout>
-                    <Label Text="Can't log in?   ·   Create an account"
-                           TextColor="#1765d1"
-                           FontAttributes="Bold"
-                           Margin="0,20,0,0">
-                    </Label>
-                </HorizontalStackLayout>
+
                 <BoxView BackgroundColor="#777"
                              HeightRequest="0.5"
-                             WidthRequest="250"
-                         Margin="0,10,0,0">
+                             WidthRequest="270"
+                         Margin="0,20,0,0">
 
                 </BoxView>
             </FlexLayout>
@@ -178,13 +167,13 @@
                        TextColor="#666"
                        FontSize="10"
                        Margin="0,5,0,0">
-                    
+
                 </Label>
                 <Label Text="Privacy Policy · User Notice"
                        TextColor="#555"
                        FontSize="10"
                        Margin="0,3,0,0">
-                    
+
                 </Label>
                 <Label Text="This site is protected by rosanaMaria and the team"
                        TextColor="#555"
@@ -221,4 +210,3 @@
         </Grid>
     </ScrollView>
 </ContentPage>
-
