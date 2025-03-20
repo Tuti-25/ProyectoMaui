@@ -11,4 +11,8 @@ public partial class LoginOrSignUp : ContentPage
     {
         await Navigation.PushAsync(new Login());
     }
+    private async void BtnSignUp_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new SignUp());
+    }
 }

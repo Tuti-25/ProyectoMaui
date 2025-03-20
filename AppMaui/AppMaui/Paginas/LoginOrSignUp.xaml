@@ -2,7 +2,6 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.LoginOrSignUp"
-             Title="LoginOrSignUp"
              BackgroundColor="#212429">
     <ScrollView>
         <Grid>
@@ -55,30 +54,45 @@
                     Clicked="BtnLogIn_Clicked">
             </Button>
             <Button Text="Sign In"
+                    x:Name="BtnSignUp"
                     Background="#24272c"
                     TextColor="#ffffffff"
                     FontSize="20"
                     HeightRequest="25"
                     WidthRequest="200"
-                
                     BorderColor="#111"
                     BorderWidth="2"
-                    Padding="-20">
+                    Padding="-20"
+                    Clicked="BtnSignUp_Clicked">
             </Button>
         </FlexLayout>
-        <FlexLayout Grid.Row="3" 
+            <FlexLayout Grid.Row="3" 
                     BackgroundColor="#212429" 
                     Direction="Row" 
                     HorizontalOptions="Center"
+                        MaximumWidthRequest="200"
                     >
-            <Label Text="By signing up, you agree to the policy and rule 3.4, allowing us to collect your credit card information. "
-                   LineBreakMode="WordWrap"
-                   MaximumWidthRequest="200"
-                   TextColor="#5b5e65"
-                   HorizontalTextAlignment="Center">
-           
-            </Label>
-        </FlexLayout>
+                <Label Margin="0,3,0,0"
+                       LineBreakMode="WordWrap"
+                       MaximumWidthRequest="200"
+                       HorizontalTextAlignment="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="By signing up, you agree to the policy and rule 3.4, allowing us to collect your" 
+                                  TextColor="#5b5e65"
+                                  FontSize="10"
+                                  >
+                            </Span>
+                            <Span Text=" credit card information." 
+                                  TextColor="#555"
+                                        FontSize="11"
+                                  TextDecorations="Underline"
+                                  >
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </FlexLayout>
     </Grid>
     </ScrollView>
 </ContentPage>
