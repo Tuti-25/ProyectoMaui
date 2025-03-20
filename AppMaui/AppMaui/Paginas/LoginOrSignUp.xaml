@@ -50,7 +50,9 @@
                     HeightRequest="30"
                     WidthRequest="200"
                     Padding="-20"
-                    Margin="0,12,0,8">
+                    Margin="0,12,0,8"
+                    x:Name="BtnLogIn"
+                    Clicked="BtnLogIn_Clicked">
             </Button>
             <Button Text="Sign In"
                     Background="#24272c"

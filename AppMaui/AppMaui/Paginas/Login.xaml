@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Paginas.Login">
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <FlexLayout Grid.Row="0"
+                        BackgroundColor="#ffffff"
+                        Direction="Column"
+                        AlignItems="Center"
+                        JustifyContent="Center">
+                <HorizontalStackLayout Margin="0,10,0,20">
+                    <Image Source="emergency_two.png"
+                           HeightRequest="40"
+                           WidthRequest="40" />
+                    <Label Text="Salvatierra"
+                           TextColor="#111"
+                           FontSize="15"
+                           Margin="10,10,4,0"
+                           FontAttributes="Bold"
+                           CharacterSpacing="1" />
+                </HorizontalStackLayout>
+
+                <Label Text="Log in to continue"
+                       FontAttributes="Bold"
+                       FontSize="15"
+                       >
+                    
+                </Label>
+            </FlexLayout>
+
+            <FlexLayout Grid.Row="1"
+                        BackgroundColor="#ffffff"
+                        HorizontalOptions="Center"
+                        Direction="Column"
+                        Margin="0,20,0,0">
+                <Frame BorderColor="#111" 
+                       CornerRadius="3" 
+                       HeightRequest="40" 
+                       Padding="0"
+                       MaximumWidthRequest="200">
+                    <Entry Placeholder="Enter your email"
+                           Keyboard="Email"
+                           PlaceholderColor="#777"
+                           VerticalOptions="Center"
+                           Margin="10,0" 
+                           WidthRequest="170"
+                           x:Name="EmailLogin">
+
+                    </Entry>
+                </Frame>
+                <Frame BorderColor="#111" 
+                       CornerRadius="3" 
+                       HeightRequest="40" 
+                       Padding="0"
+                       MaximumWidthRequest="200"
+                       Margin="0,5,0,0">
+                    <Entry Placeholder="Enter your password"
+                           IsPassword="True"
+                           PlaceholderColor="#777"
+                           VerticalOptions="Center"
+                           Margin="10,0" 
+                           WidthRequest="170"
+                           x:Name="ContarsenaLogin" 
+                           Visual="Material"
+                           >
+                    </Entry>
+                </Frame>
+                <HorizontalStackLayout Margin="7,3,40,0"
+                                       HorizontalOptions="Center"
+                                       >
+                    <CheckBox
+                      Color="#888"
+                        >
+
+                    </CheckBox>
+                    <Label Text="Remember me" 
+                           VerticalOptions="Center"/>
+                    <Image Source="mark.png"
+                           WidthRequest="15"
+                           Margin="5,4,0,0">
+                    </Image>
+                </HorizontalStackLayout>
+            </FlexLayout>
+            <FlexLayout Grid.Row="2"
+                        BackgroundColor="#ffffff"
+                        AlignItems="Center"
+                        VerticalOptions="Start"
+                        Direction="Column">
+                <Button BackgroundColor="#0b65e3"
+                        Text="Continue"
+                        TextColor="#ffffff"
+                        MaximumHeightRequest="40"
+                        WidthRequest="200"
+                        CornerRadius="3"
+                        Margin="0,3,0,0">
+                </Button>
+                <Label Text="Or continue with:"
+                       TextColor="#666"
+                       FontAttributes="Bold"
+                       Margin="0,6,0,0">
+
+                </Label>
+
+                <ImageButton Source="google.jpg"
+                             WidthRequest="370"
+                             HeightRequest="50"
+                             BorderColor="#999"
+                             BorderWidth="0.4"
+                             BackgroundColor="#ffffff"
+                             Margin="0,10,3,2"
+                             Padding="0,0,0,5"
+                            >
+
+                </ImageButton>
+                <ImageButton Source="microsoft.jpg"
+                             WidthRequest="370"
+                             HeightRequest="50"
+                             BorderColor="#999"
+                             BorderWidth="0.4"
+                             BackgroundColor="#ffffff"
+                             Margin="4,4,3,2"
+                             Padding="0,5,0,5">
+
+                </ImageButton>
+                <ImageButton Source="apple.jpg"
+                             WidthRequest="370"
+                             HeightRequest="50"
+                             BorderColor="#999"
+                             BorderWidth="0.4"
+                             BackgroundColor="#ffffff"
+                             Margin="0,4,3,2"
+                             Padding="0,0,8,5">
+
+                </ImageButton>
+                <ImageButton Source="slack.jpg"
+                             WidthRequest="370"
+                             HeightRequest="50"
+                             BorderColor="#999"
+                             BorderWidth="0.4"
+                             BackgroundColor="#ffffff"
+                             Margin="0,4,6,2"
+                             Padding="0,0,0,5"
+                             >
+
+                </ImageButton>
+                <HorizontalStackLayout>
+                    <Label Text="Can't log in?   ·   Create an account"
+                           TextColor="#1765d1"
+                           FontAttributes="Bold"
+                           Margin="0,20,0,0">
+                    </Label>
+                </HorizontalStackLayout>
+                <BoxView BackgroundColor="#777"
+                             HeightRequest="0.5"
+                             WidthRequest="250"
+                         Margin="0,10,0,0">
+
+                </BoxView>
+            </FlexLayout>
+            <FlexLayout Grid.Row="3"
+                        BackgroundColor="#ffffff">
+            </FlexLayout>
+            <FlexLayout Grid.Row="4"
+                        BackgroundColor="AliceBlue"
+                        Direction="Column"
+                        AlignItems="Center">
+                <Label Text="Universidad Latinoamericana de Ciencia y Tecnologia"
+                       TextColor="#666"
+                       FontSize="10"
+                       Margin="0,5,0,0">
+                    
+                </Label>
+                <Label Text="Privacy Policy · User Notice"
+                       TextColor="#555"
+                       FontSize="10"
+                       Margin="0,3,0,0">
+                    
+                </Label>
+                <Label Text="This site is protected by rosanaMaria and the team"
+                       TextColor="#555"
+                       FontSize="10"
+                        Margin="0,3,0,0">
+
+                </Label>
+                <Label Margin="0,3,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Privacy Policy" 
+                                  TextColor="#1765d1"
+                                  FontSize="10">
+                            </Span>
+                            <Span Text=" and " 
+                                  TextColor="#555"
+                                        FontSize="10">
+                            </Span>
+                            <Span Text="Terms of Service"
+                                  TextColor="#1765d1"
+                                        FontSize="10">
+                            </Span>
+                            <Span Text=" apply"
+                                  TextColor="#555"
+                                        FontSize="10"
+                                  >
+                            </Span>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+            </FlexLayout>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
+
