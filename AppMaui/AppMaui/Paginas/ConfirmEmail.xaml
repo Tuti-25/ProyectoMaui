@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.ConfirmEmail">
 
-    <Grid>
+    
+        <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -11,6 +12,8 @@
         <FlexLayout Grid.Row="0" 
                     Direction="Column"
                     AlignItems="Center"
+                    
+                    
                     >
             <HorizontalStackLayout Margin="0,5,0,20">
                 <Image Source="emergency_two.png"
