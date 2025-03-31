@@ -7,7 +7,7 @@ namespace AppMaui
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new LoginOrSignUp());
+            MainPage = new NavigationPage(new Casos());
         }
     }
 }
