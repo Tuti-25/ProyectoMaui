@@ -78,6 +78,9 @@
 	  <MauiXaml Update="Paginas\CasosFiltros.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Paginas\Chats.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Paginas\ConfirmEmail.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
