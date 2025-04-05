@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Paginas.CrearCaso"
+             BackgroundColor="#1c1c1f"
+             NavigationPage.HasNavigationBar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="80" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="0,0,0,30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90" />
+                <ColumnDefinition Width="170" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"
+                    Text="Cancel"
+                    Background="Transparent"
+                    HeightRequest="10"
+                    WidthRequest="100"
+                    HorizontalOptions="End"
+                    FontAttributes="Bold"
+                    x:Name="BtnCancelar"
+                    Clicked="BtnCancelar_Clicked"></Button>
+            <Label Grid.Column="1"
+                   Text="Crear caso"
+                   TextColor="#ffffff"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   FontAttributes="Bold"
+                   FontSize="17" />
+            <Button Grid.Column="2"
+                    Text="Crear"
+                    TextColor="#8b8a8f"
+                    Background="Transparent"
+                    HeightRequest="10"
+                    WidthRequest="100"
+                    HorizontalOptions="End"
+                    FontAttributes="Bold" />
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <VerticalStackLayout Grid.Column="0"
+                                 HorizontalOptions="Center"
+                                 Margin="0,0,0,0">
+                <Frame BackgroundColor="#2c2c2e"
+                       HeightRequest="50"
+                       CornerRadius="10"
+                       Padding="0"
+                       BorderColor="Transparent">
+                    <Grid Grid.Column="0"
+                          WidthRequest="150">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Grid.Column="0"
+                                     HorizontalOptions="Center"
+                                     Source="linux.png"
+                                     Scale="0.5"
+                                     Background="#2c2c2e" />
+                        <Label Grid.Column="1"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Start"
+                               Text="Tuti"
+                               TextColor="#ffffff"
+                               FontSize="13"
+                               FontAttributes="Bold"
+                               Margin="0,0,0,0" />
+                        <Label Grid.Column="2"
+                               Text="↓"
+                               TextColor="#868687"
+                               FontSize="20"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="End"
+                               Margin="0,0,5,0" />
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+            <VerticalStackLayout Grid.Column="1"
+                                 HorizontalOptions="Center"
+                                 Margin="0,0,0,0">
+                <Frame BackgroundColor="#2c2c2e"
+                       HeightRequest="50"
+                       CornerRadius="10"
+                       Padding="0"
+                       BorderColor="Transparent">
+                    <Grid Grid.Column="0"
+                          WidthRequest="150">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <ImageButton Grid.Column="0"
+                                     HorizontalOptions="Center"
+                                     Source="uno.png"
+                                     Scale="0.5"
+                                     Background="#2c2c2e" />
+                        <Label Grid.Column="1"
+                               VerticalTextAlignment="Center"
+                               HorizontalTextAlignment="Start"
+                               Text="Severidad"
+                               TextColor="#ffffff"
+                               FontSize="12.6"
+                               FontAttributes="Bold"
+                               Margin="0,0,0,0" />
+                        <Label Grid.Column="2"
+                               Text="↓"
+                               TextColor="#868687"
+                               FontSize="20"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="End"
+                               Margin="0,0,5,0" />
+                    </Grid>
+                </Frame>
+            </VerticalStackLayout>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"></ColumnDefinition>
+                <ColumnDefinition Width="80"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Editor Grid.Column="0"
+                    Margin="10,0,0,0"
+    x:Name="editorDescripcion"
+    Placeholder="Resumen del problema..."
+    AutoSize="TextChanges"
+    MaxLength="200"
+    BackgroundColor="Transparent"
+    TextColor="#8b8a8f"
+                    PlaceholderColor="#5a5a5c"
+    FontSize="20"
+    HeightRequest="50"
+                        Visual="Material">
+            </Editor>
+            <ImageButton Grid.Column="1"
+                Source="linux.png"
+                         HeightRequest="10"
+                         WidthRequest="10">
+                
+            </ImageButton>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Frame Grid.Row="0"
+                BackgroundColor="#2c2c2e"
+                   BorderColor="Transparent"
+                   Margin="15,0,0,0"
+                   VerticalOptions="Start"
+                   HorizontalOptions="Start">
+                <Grid Grid.Row="0"
+                  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="265"></ColumnDefinition>
+                        <ColumnDefinition Width="10"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Descripcion"
+                           TextColor="#ffffff"
+                           FontSize="15"
+                               FontAttributes="Bold"
+                           >
+                        </Label>
+                        <Editor Grid.Column="1"
+                     Placeholder="Agrega una descripcion..."
+                     AutoSize="TextChanges"
+                     MaxLength="500"
+                     BackgroundColor="Transparent"
+                     TextColor="#8b8a8f"
+                     PlaceholderColor="#5a5a5c"
+                     FontSize="12">
+                        </Editor>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="1"
+                   BackgroundColor="#2c2c2e"
+                   VerticalOptions="Start"
+                   Margin="15,20,30,0"
+                   BorderColor="Transparent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="90"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Grid.Column="0"
+                        Text="Documentos"
+                       TextColor="#ffffff"
+                       FontSize="15"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold">
+                    </Label>
+                    <Label Grid.Column="1"
+                               Text="↓"
+                               TextColor="#868687"
+                               FontSize="15"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="End"
+                               Margin="0,0,5,0" />
+
+                </Grid>
+            </Frame>
+            <Frame Grid.Row="2"
+                   BackgroundColor="#2c2c2e"
+                   VerticalOptions="Start"
+                   Margin="15,0,30,0"
+                   BorderColor="Transparent">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label 
+                        Grid.Column="0"
+                        Text="Mas informacion"
+                       TextColor="#ffffff"
+                       FontSize="15"
+                        HorizontalTextAlignment="Center"
+                        FontAttributes="Bold">
+                    </Label>
+                    <Label Grid.Column="1"
+                               Text="↓"
+                               TextColor="#868687"
+                               FontSize="15"
+                               VerticalTextAlignment="Center"
+                               HorizontalOptions="End"
+                               Margin="0,0,5,0" />
+                </Grid>
+            </Frame>
+        </Grid>
+    </Grid>
+</ContentPage>

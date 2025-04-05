@@ -17,13 +17,21 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Text="←"
-                   FontSize="30"
-                   TextColor="#ffffff"
-                   VerticalTextAlignment="Center"
-                   HorizontalOptions="Center">
+            <Label
+       Text="←"
+       FontSize="30"
+       TextColor="#ffffff"
+       VerticalTextAlignment="Center"
+       HorizontalOptions="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="LblRegreso" Tapped="LblRegreso_Tapped">
+                        
+                    </TapGestureRecognizer>
+                </Label.GestureRecognizers>
             </Label>
-            <Label Grid.Column="1"
+
+            <Label 
+                Grid.Column="1"
                    Text="Filtros"
                    TextColor="#ffffff"
                    HorizontalOptions="End"
