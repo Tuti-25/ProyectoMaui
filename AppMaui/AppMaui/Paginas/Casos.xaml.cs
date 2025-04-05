@@ -8,5 +8,9 @@ public partial class Casos : ContentPage
 
 
     }
+    private async void TapFiltros_Tapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new CasosFiltros());
+    }
 
 }

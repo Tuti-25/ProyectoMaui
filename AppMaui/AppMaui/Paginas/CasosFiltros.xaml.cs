@@ -5,5 +5,6 @@ public partial class CasosFiltros : ContentPage
 	public CasosFiltros()
 	{
 		InitializeComponent();
-	}
+
+    }
 }
