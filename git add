@@ -1,0 +1,25 @@
+[33m8b7ca[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mkenneth[m[33m)[m Merge branch 'master' into kenneth
+[33m74ea4[m[33m ([m[1;31morigin/Kenneth[m[33m)[m Vista creacion de casos
+[33m3a216[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/daniel[m[33m, [m[1;32mmaster[m[33m)[m *Menu*
+[33mdc540[m Merge pull request #9 from Tuti-25/Kenneth
+[33m82985[m Create Notificacion.xaml
+[33me8995[m Merge branch 'master' into Kenneth
+[33m55e36[m Vista de filtros de casos
+[33mca449[m Merge pull request #8 from Tuti-25/rosana
+[33mcb5e0[m[33m ([m[1;31morigin/rosana[m[33m)[m vista configuración
+[33m7d72a[m Merge pull request #7 from Tuti-25/Kenneth
+[33maafea[m Mini cambios
+[33m9ff6a[m Merge pull request #6 from Tuti-25/Kenneth
+[33mf7be6[m Vista de Chats
+[33m3a002[m Merge pull request #5 from Tuti-25/Kenneth
+[33m20240[m Vista de Casos
+[33m7ba0e[m Merge pull request #4 from Tuti-25/Kenneth
+[33mf2a55[m Vista de Sign up y vista de confirmacion de email
+[33maee51[m Merge pull request #3 from Tuti-25/Kenneth
+[33m77b0d[m Agregando la vista de login
+[33maf98d[m Merge pull request #2 from Tuti-25/Kenneth
+[33m0bc26[m Pantalla para elegir login o signup
+[33mbea5d[m Merge pull request #1 from Tuti-25/Kenneth
+[33m81058[m Prueba funcional de App con API
+[33m6b815[m Add project files.
+[33m9d1b4[m Add .gitattributes and .gitignore.
