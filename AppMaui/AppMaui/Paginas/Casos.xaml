@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.Casos"
-             BackgroundColor="#000000">
+             BackgroundColor="#000000"
+             NavigationPage.HasNavigationBar="False">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -17,31 +18,40 @@
                     <RowDefinition Height="100" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0"
+                      HeightRequest="45"
+                      Margin="0,30,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <FlexLayout Grid.Column="0">
+                    <FlexLayout Grid.Column="0"
+                                Margin="15,0,0,0"
+                                VerticalOptions="Center"
+                                >
                         <Button BackgroundColor="#5242aa"
                                 Text="K"
-                   FontAttributes="Bold"
-                    CornerRadius="30"
-                    HeightRequest="10"
-                    WidthRequest="10"
-                                >
+                                FontAttributes="Bold"
+                                CornerRadius="30"
+                                HeightRequest="40"
+                                WidthRequest="30">
                         </Button>
                     </FlexLayout>
-                    <FlexLayout Grid.Column="1" HorizontalOptions="Center">
+                    <FlexLayout Grid.Column="1" 
+                                HorizontalOptions="Center"
+                               >
                         <Label Text="Casos"
-                               TextColor="AliceBlue"
+                               TextColor="#ffffff"
                                FontSize="20"
-                               FontAttributes="Bold">
+                               FontAttributes="Bold"
+                               VerticalTextAlignment="Center">
                         </Label>
                     </FlexLayout>
-                    <FlexLayout Grid.Column="2" HorizontalOptions="End">
+                    <FlexLayout Grid.Column="2"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center">
                         <ImageButton Source="search.png"
                                      HeightRequest="20"
                                      WidthRequest="20"
@@ -56,15 +66,16 @@
                 </Grid>
                 <VerticalStackLayout Grid.Row="1"
                                      HorizontalOptions="Center"
-                                     Margin="15,30,15,0">
+                                     Margin="15,30,15,0"
+                                     BackgroundColor="Red">
                     <Frame BackgroundColor="#1c1c1f"
                            HeightRequest="60"
                            CornerRadius="10"
                            Padding="0"
                            BorderColor="#000000">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer x:Name="Filter_slide"
-                                                  Tapped="Filter_slide_Tapped">
+                            <TapGestureRecognizer>
+                                
                             </TapGestureRecognizer>
                         </Frame.GestureRecognizers>
                         <Grid>
@@ -122,7 +133,7 @@
                                 <Label Grid.Column="0"
                                        HorizontalOptions="Center"
                                        Margin="0,8,0,0"
-                                       Text="Detailed"
+                                       Text="Detalles"
                                        TextColor="AliceBlue"
                                        FontSize="13"
                                        CharacterSpacing="1"
@@ -131,7 +142,7 @@
                                 <Label Grid.Column="1"
                                        HorizontalOptions="Center"
                                        Margin="0,8,0,0"
-                                       Text="List"
+                                       Text="Lista"
                                        TextColor="AliceBlue"
                                        FontSize="13"
                                        CharacterSpacing="1"
@@ -223,25 +234,25 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <ImageButton Grid.Column="0" Source="home.png"
-                         HeightRequest="40" WidthRequest="40" 
-                         Scale="0.8"
-                         
-                         />
-            <ImageButton Grid.Column="1" Source="casos.png"
-                         HeightRequest="40" WidthRequest="40" 
-                         Scale="0.8"
-                         
-                         />
-            <ImageButton Grid.Column="2" Source="chat.png"
-                         HeightRequest="40" WidthRequest="40" 
-                         Scale="0.8"
-                         
-                         />
-            <ImageButton Grid.Column="3" Source="notificacion.png"
-                         HeightRequest="20" WidthRequest="20"
-                         Scale="0.8"
-                         />
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                <ImageButton Source="home.png" HeightRequest="40" WidthRequest="40" Scale="0.8" />
+                <Label Text="Home" FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                <ImageButton Source="casos.png" HeightRequest="40" WidthRequest="40" Scale="0.8" />
+                <Label Text="Casos" FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                <ImageButton Source="chat.png" HeightRequest="40" WidthRequest="40" Scale="0.8" />
+                <Label Text="Chat" FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center">
+                <ImageButton Source="notificacion.png" HeightRequest="40" WidthRequest="40" Scale="0.8" />
+                <Label Text="Notificaciones" FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" />
+            </VerticalStackLayout>
         </Grid>
     </Grid>
 </ContentPage>
