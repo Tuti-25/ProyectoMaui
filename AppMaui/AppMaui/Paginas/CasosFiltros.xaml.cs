@@ -7,4 +7,8 @@ public partial class CasosFiltros : ContentPage
 		InitializeComponent();
 
     }
+    private async void LblRegreso_Tapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushAsync(new Casos());
+    }
 }

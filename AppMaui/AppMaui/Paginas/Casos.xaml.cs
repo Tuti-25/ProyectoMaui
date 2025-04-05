@@ -13,4 +13,9 @@ public partial class Casos : ContentPage
         await Navigation.PushAsync(new CasosFiltros());
     }
 
+    private async void BtnCrearCaso_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new CrearCaso());
+
+    }
 }
