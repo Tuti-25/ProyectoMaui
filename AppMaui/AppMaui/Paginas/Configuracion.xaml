@@ -1,0 +1,30 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Paginas.Configuracion"
+             BackgroundColor="#1C1C1C"
+             Title="Configuración">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+
+            <Frame CornerRadius="20" BackgroundColor="#2D2D2D" Padding="20">
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Image Source="profile_placeholder.png" WidthRequest="80" HeightRequest="80"/>
+                    <Label Text="Rosana" FontSize="20" TextColor="White" HorizontalOptions="Center"/>
+                    <Label Text="rosanare.cr@gmail.com" FontSize="14" TextColor="Gray" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Button Text="👥 Invitar personas al sitio" BackgroundColor="Transparent" TextColor="White"/>
+            <Button Text="🔔 Notificaciones" BackgroundColor="Transparent" TextColor="White"/>
+            <Button Text="✉️ Enviar comentarios" BackgroundColor="Transparent" TextColor="White"/>
+            <Button Text="⭐ Calificarnos" BackgroundColor="Transparent" TextColor="White"/>
+            <Button Text="🆕 Novedades" BackgroundColor="Transparent" TextColor="White"/>
+            <Button Text="📦 Más apps de Atlassian" BackgroundColor="Transparent" TextColor="White"/>
+            <Button Text="📤 Compartir app con tu equipo" BackgroundColor="Transparent" TextColor="White"/>
+            <Button Text="⚙️ Ajustes" BackgroundColor="Transparent" TextColor="White"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
