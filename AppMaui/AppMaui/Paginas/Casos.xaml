@@ -11,37 +11,33 @@
         </Grid.RowDefinitions>
 
         <ScrollView Grid.Row="0">
-            <Grid>
+            <Grid RowSpacing="10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30" />
-                    <RowDefinition Height="25" />
                     <RowDefinition Height="100" />
+                    <RowDefinition Height="50" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0"
                       HeightRequest="45"
-                      Margin="0,30,0,0">
+                      Margin="0,30,0,0"
+                      >
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="70" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
                     <FlexLayout Grid.Column="0"
-                                Margin="15,0,0,0"
-                                VerticalOptions="Center"
+                                Margin="0,0,0,0"
                                 >
-                        <Button BackgroundColor="#5242aa"
-                                Text="K"
-                                FontAttributes="Bold"
-                                CornerRadius="30"
-                                HeightRequest="40"
-                                WidthRequest="30">
-                        </Button>
+                        <ImageButton
+                            Source="linux.png">
+                        </ImageButton>
                     </FlexLayout>
                     <FlexLayout Grid.Column="1" 
-                                HorizontalOptions="Center"
-                               >
+                                HorizontalOptions="End"
+                                Margin="0,0,10,0">
                         <Label Text="Casos"
                                TextColor="#ffffff"
                                FontSize="20"
@@ -51,7 +47,8 @@
                     </FlexLayout>
                     <FlexLayout Grid.Column="2"
                                 HorizontalOptions="End"
-                                VerticalOptions="Center">
+                                VerticalOptions="Center"
+                                Margin="0,0,5,0">
                         <ImageButton Source="search.png"
                                      HeightRequest="20"
                                      WidthRequest="20"
@@ -66,101 +63,99 @@
                 </Grid>
                 <VerticalStackLayout Grid.Row="1"
                                      HorizontalOptions="Center"
-                                     Margin="15,30,15,0"
-                                     BackgroundColor="Red">
+                                     Margin="15,40,15,0">
                     <Frame BackgroundColor="#1c1c1f"
                            HeightRequest="60"
                            CornerRadius="10"
                            Padding="0"
                            BorderColor="#000000">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer>
+                            <TapGestureRecognizer x:Name="TapFiltros" Tapped="TapFiltros_Tapped">
                                 
                             </TapGestureRecognizer>
                         </Frame.GestureRecognizers>
-                        <Grid>
+                            <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="80" />
+                                <ColumnDefinition Width="60" />
                                 <ColumnDefinition Width="100" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Frame HorizontalOptions="Start"
-                                   Margin="10,0,0,0"
-                                   BackgroundColor="#39383d"
-                                   HeightRequest="40"
-                                   WidthRequest="40"
-                                   BorderColor="Transparent">
-                                <ImageButton HorizontalOptions="Center"
-                                             Source="filter.png"
-                                             HeightRequest="20"
-                                             WidthRequest="30"
-                                             Scale="0.4"/>
-                            </Frame>
-                            <VerticalStackLayout Grid.Column="1"
-                                                 VerticalOptions="Center"
-                                                 HorizontalOptions="Start">
-                                <Label Text="Todos los casos"
-                                       TextColor="#ffffff"
-                                       FontSize="13"
-                                       FontAttributes="Bold"/>
-                                <Label Text="5 resultados"
-                                       TextColor="#9a9a9c"
-                                       FontSize="10"/>
-                            </VerticalStackLayout>
-                            <ImageButton Grid.Column="2"
+                            <ImageButton
+                                Grid.Column="0"
+                                HorizontalOptions="Center"
+                                Source="filter.png"
+                                Scale="0.6"
+                                Background="#1c1c1f">
+                            </ImageButton>
+                            <Label 
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Start"
+                                Grid.Column="1"
+                                Text="Todos los casos"
+                                TextColor="#ffffff"
+                                FontSize="13"
+                                FontAttributes="Bold"
+                                Margin="0,0,0,10">
+                            </Label>
+                            <Label
+                                Grid.Column="1"
+                                VerticalTextAlignment="End"
+                                HorizontalTextAlignment="Start"
+                                Text="5 resultados"
+                                TextColor="#9a9a9c"
+                                FontSize="10"
+                                Margin="0,0,0,10">
+
+                            </Label>
+                            <ImageButton 
+                                Grid.Column="2"
                                          Source="down.png"
                                          Scale="0.4"
                                          HorizontalOptions="End"
-                                         Margin="60,0,0,0"/>
+                                         Margin="80,0,0,0">
+                            </ImageButton>
                         </Grid>
                     </Frame>
                 </VerticalStackLayout>
-                <VerticalStackLayout Grid.Row="2"
-                                     HeightRequest="50"
-                                     Margin="15,100,15,0"
-                                     BackgroundColor="Transparent">
-                    <Frame Padding="0"
-                           BorderColor="Transparent"
-                           BackgroundColor="Transparent">
-                        <VerticalStackLayout BackgroundColor="#1c1c1f"
-                                             HeightRequest="35">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-
-                                <Label Grid.Column="0"
-                                       HorizontalOptions="Center"
-                                       Margin="0,8,0,0"
-                                       Text="Detalles"
-                                       TextColor="AliceBlue"
-                                       FontSize="13"
-                                       CharacterSpacing="1"
-                                       FontAttributes="Bold">
-                                </Label>
-                                <Label Grid.Column="1"
-                                       HorizontalOptions="Center"
-                                       Margin="0,8,0,0"
-                                       Text="Lista"
-                                       TextColor="AliceBlue"
-                                       FontSize="13"
-                                       CharacterSpacing="1"
-                                       FontAttributes="Bold">
-                                </Label>
-                            </Grid>
-                        </VerticalStackLayout>
-                    </Frame>
-                </VerticalStackLayout>
+                <Frame Grid.Row="2"
+                       Margin="0,10,0,0"
+                       HorizontalOptions="Center"
+                       BackgroundColor="#1c1c1f"
+                       BorderColor="Transparent"
+                       CornerRadius="10"
+                       Padding="2">
+                    <HorizontalStackLayout
+                        BackgroundColor="#1c1c1f">
+                        <Button
+                                Text="Detalles"
+                                TextColor="AliceBlue"
+                                FontSize="13"
+                                CharacterSpacing="1"
+                                FontAttributes="Bold"
+                                BackgroundColor="#1c1c1f"
+                                WidthRequest="170">
+                        </Button>
+                        <Button
+                         Text="Lista"
+                          TextColor="#ffffff"
+                          FontSize="13"
+                          CharacterSpacing="1"
+                          FontAttributes="Bold"
+                          BackgroundColor="#1c1c1f"
+                          WidthRequest="160">
+                        </Button>
+                    </HorizontalStackLayout>
+                </Frame>
                 <VerticalStackLayout Grid.Row="3"
                                      BackgroundColor="Transparent"
-                                     Margin="0,50,0,0">
+                                     Margin="0,20,0,0">
                     <HorizontalStackLayout Margin="50,0,0,5"
                                            Grid.Row="0">
-                        <Label Text="FechaDeCreacion"
+                        <Label Text="Fecha de Creacion"
                                TextColor="#919194"
                                FontSize="10"
-                               TextTransform="Uppercase">
+                               TextTransform="Uppercase"
+                               FontAttributes="Bold">
                         </Label>
                     </HorizontalStackLayout>
                     <Frame BackgroundColor="#1c1c1f"
@@ -169,57 +164,68 @@
                            CornerRadius="10"
                            Padding="0"
                            BorderColor="#000000">
-                        <Grid RowSpacing="7">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="23" />
-                                <RowDefinition Height="20" />
-                            </Grid.RowDefinitions>
-                            <HorizontalStackLayout Grid.Row="0"
-                                                   HeightRequest="30"
-                                                   Margin="15,20,0,0">
-                                <Frame WidthRequest="20"
-                                       HeightRequest="20"
-                                       BackgroundColor="Transparent"
-                                       Padding="0"
-                                       Margin="0,0,10,10"
-                                       BorderColor="Transparent">
-                                    <Image Source="dos.png"
-                                           HeightRequest="20"
-                                           WidthRequest="20">
-                                    </Image>
-                                </Frame>
-                                <Label Grid.Row="0"
-                                       Text="NombreDeCaso"
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30" ></ColumnDefinition>
+                                <ColumnDefinition Width="*" ></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Image 
+                                  Grid.Column="0"
+                                  Source="dos.png"
+                                  Scale="4"
+                                  Margin="20,0,0,0">
+                            </Image>
+                            <Grid Grid.Column="1"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        Margin="0,0,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*">
+
+                                    </ColumnDefinition>
+                                    <ColumnDefinition Width="*">
+
+                                    </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <VerticalStackLayout Grid.Column="0"
+                                                     VerticalOptions="Center"
+                                                     HorizontalOptions="Center">
+                                    <Label
+                                       Text="Muro mal pintado"
                                        TextColor="#ffffff">
-                                </Label>
-                            </HorizontalStackLayout>
-                            <HorizontalStackLayout Grid.Row="1"
-                                                  HorizontalOptions="Center"
-                                                  Margin="-5,0,0,0">
-                                <Label Text="NombreCreador"
+                                    </Label>
+                                    <Label Text="Tuti"
                                        TextColor="#9d9da1"
                                        FontSize="10"
                                        Margin="0,0,0,2"
-                                       VerticalTextAlignment="Center"
                                        FontAttributes="Bold">
-                                </Label>
-                                <ImageButton Source="equal.png"
-                                             HeightRequest="10"
-                                             WidthRequest="10"
+                                    </Label>
+                                </VerticalStackLayout>
+                                <HorizontalStackLayout Grid.Column="1">
+                                    <ImageButton Source="equal.png"
+                                             HeightRequest="1"
+                                             WidthRequest="12"
                                              Margin="0,0,0,2"
                                              Scale="0.3">
-                                </ImageButton>
-                                <Frame BackgroundColor="#464f59"
-                                       Padding="5,1"
+                                    </ImageButton>
+                                    <Frame BackgroundColor="#464f59"
                                        CornerRadius="5"
-                                       BorderColor="Transparent">
-                                    <Label Text="EstadoDeCaso"
+                                       BorderColor="Transparent"
+                                           HeightRequest="10"
+                                       Padding="10">
+                                        <Label Text="Finalizado"
                                            TextColor="#ffffff"
-                                           FontSize="13"
-                                           TextTransform="Uppercase">
-                                    </Label>
-                                </Frame>
-                            </HorizontalStackLayout>
+                                           FontSize="11"
+                                           TextTransform="Uppercase"
+                                               HorizontalTextAlignment="Center"
+                                               VerticalOptions="Center"
+                                               VerticalTextAlignment="Center"
+                                               FontAttributes="Bold"
+                                               CharacterSpacing="1">
+                                        </Label>
+                                    </Frame>
+                                </HorizontalStackLayout>
+                            </Grid>
                         </Grid>
                     </Frame>
                 </VerticalStackLayout>
