@@ -12,6 +12,9 @@ namespace ProjectoMauiAPI.Models.Entities
         [Required]
         [MaxLength(50)]
         public string TipoRol { get; set; }
+
         public string DescripcionRol { get; set; }
+
+        public ICollection<AgenteRoles> AgenteRoles { get; set; }
     }
 }

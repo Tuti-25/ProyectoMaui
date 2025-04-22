@@ -10,6 +10,6 @@ public partial class SignUp : ContentPage
 
     private async void BtnSignUp2_Clicked(object sender, EventArgs e)
     {
-		await Navigation.PushAsync(new ConfirmEmail());
+		await Navigation.PushAsync(new IngresarDatos());
     }
 }

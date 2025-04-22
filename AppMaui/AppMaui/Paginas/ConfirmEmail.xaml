@@ -65,7 +65,8 @@
                        Padding="0">
                     <Entry HeightRequest="20"
                            WidthRequest="20" 
-                           HorizontalTextAlignment="Center">
+                           HorizontalTextAlignment="Center"
+                           x:Name="entry1">
                     </Entry>
                 </Frame>
                 <Frame BorderColor="#111" 
@@ -73,7 +74,8 @@
                        Padding="0">
                         <Entry HeightRequest="40"
                            WidthRequest="40" 
-                           HorizontalTextAlignment="Center">
+                           HorizontalTextAlignment="Center"
+                               x:Name="entry2">
                         </Entry>
                     </Frame>
                 <Frame BorderColor="#111" 
@@ -81,7 +83,8 @@
                        Padding="0">
                     <Entry HeightRequest="40"
                            WidthRequest="40" 
-                           HorizontalTextAlignment="Center">
+                           HorizontalTextAlignment="Center"
+                           x:Name="entry3">
                     </Entry>
                 </Frame>
                 <Frame BorderColor="#111" 
@@ -89,7 +92,8 @@
                        Padding="0">
                 <Entry HeightRequest="40"
                            WidthRequest="40" 
-                           HorizontalTextAlignment="Center">
+                           HorizontalTextAlignment="Center"
+                           x:Name="entry4">
                 </Entry>
                 </Frame>
                 <Frame BorderColor="#111" 
@@ -97,7 +101,8 @@
                        Padding="0">
                 <Entry HeightRequest="40"
                            WidthRequest="40" 
-                           HorizontalTextAlignment="Center">
+                           HorizontalTextAlignment="Center"
+                       x:Name="entry5">
                 </Entry>
                 </Frame>
                 <Frame BorderColor="#111" 
@@ -105,7 +110,9 @@
                        Padding="0">
                     <Entry HeightRequest="40"
                            WidthRequest="40" 
-                           HorizontalTextAlignment="Center">
+                           HorizontalTextAlignment="Center"
+                           x:Name="entry6"
+                           Keyboard="Numeric">
                     </Entry>
                 </Frame>
             </HorizontalStackLayout>
@@ -114,7 +121,9 @@
                     HeightRequest="5"
                     WidthRequest="200"
                     CornerRadius="2"
-                    Margin="0,15,0,0">
+                    Margin="0,15,0,0"
+                    x:Name="BtnVerificarCodigo"
+                    Clicked="BtnVerificarCodigo_Clicked">
             </Button>
             <Label Text="Didn't receive an email? Resend email"
                    TextColor="#3b78d0"

@@ -32,7 +32,10 @@
                                 Margin="0,0,0,0"
                                 >
                         <ImageButton
-                            Source="linux.png">
+                            Source="linux.png"
+                            x:Name="BtnPerfil"
+                            Clicked="BtnPerfil_Clicked">
+                            
                         </ImageButton>
                     </FlexLayout>
                     <FlexLayout Grid.Column="1" 
@@ -254,8 +257,11 @@
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
-                <ImageButton Source="chat.png" HeightRequest="40" WidthRequest="40" Scale="0.8" />
-                <Label Text="Chat" FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" />
+                <ImageButton Source="chat.png" HeightRequest="40" WidthRequest="40" Scale="0.8" 
+                             x:Name="BtnImgChat"
+                             Clicked="BtnImgChat_Clicked"/>
+                <Label Text="Chat" 
+                       FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" />
             </VerticalStackLayout>
 
             <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center">

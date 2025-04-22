@@ -15,6 +15,10 @@ namespace ProjectoMauiAPI.Models.Entities
         public string NombreUsuario { get; set; }
 
         [Required]
+        [MaxLength(5)]
+        public string CodigoCasa { get; set; }
+
+        [Required]
         [MaxLength(100)]
         public string ApellidoUsuario { get; set; }
 
@@ -39,11 +43,6 @@ namespace ProjectoMauiAPI.Models.Entities
         [MaxLength(255)]
         public string ContrasenaUsuario { get; set; }
 
-        [Required]
-        public int IdRol { get; set; }
-
-        [ForeignKey("IdRol")]
-        public Rol Rol { get; set; }
     }
 
 }
