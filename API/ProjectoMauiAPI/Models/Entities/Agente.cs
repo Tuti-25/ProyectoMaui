@@ -1,17 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace ProjectoMauiAPI.Models.Entities
 {
     public class Agente
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdAgente { get; set; }
-
-        [Required]
-        public int IdRol { get; set; }
 
         [Required]
         [MaxLength(100)]
@@ -30,8 +27,7 @@ namespace ProjectoMauiAPI.Models.Entities
         [MaxLength(50)]
         public string CedulaAgente { get; set; }
 
-        [ForeignKey("IdRol")]
-        public Rol Rol { get; set; }
-
+        // Relación muchos a muchos con Roles
+        public ICollection<AgenteRoles> AgenteRoles { get; set; }
     }
 }

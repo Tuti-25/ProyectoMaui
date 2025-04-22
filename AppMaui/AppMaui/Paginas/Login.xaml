@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMaui.Paginas.Login">
+             x:Class="AppMaui.Paginas.Login"
+               NavigationPage.HasNavigationBar="False">
+
 
     <ScrollView>
         <Grid>
@@ -54,7 +56,7 @@
                            VerticalOptions="Center"
                            Margin="10,0" 
                            WidthRequest="190"
-                           x:Name="EmailLogin">
+                           x:Name="EntryMail">
 
                     </Entry>
                 </Frame>
@@ -70,7 +72,7 @@
                            VerticalOptions="Center"
                            Margin="10,0" 
                            WidthRequest="190"
-                           x:Name="ContarsenaLogin" 
+                           x:Name="EntryContrasena" 
                            Visual="Material"
                            >
                     </Entry>
@@ -96,7 +98,9 @@
                         AlignItems="Center"
                         VerticalOptions="Start"
                         Direction="Column">
-                <Button BackgroundColor="#0b65e3"
+                <Button x:Name="BtnLogin"
+                        Clicked="BtnLogin_Clicked"
+                    BackgroundColor="#0b65e3"
                         Text="Continue"
                         TextColor="#ffffff"
                         MaximumHeightRequest="40"

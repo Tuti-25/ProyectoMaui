@@ -6,11 +6,27 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ProjectoMauiAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class DbMauiProjectoCMDMigration : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "Agentes",
+                columns: table => new
+                {
+                    IdAgente = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    NombreAgente = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    ApellidoAgente = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    TelefonoAgente = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    CedulaAgente = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Agentes", x => x.IdAgente);
+                });
+
             migrationBuilder.CreateTable(
                 name: "EstadosCasos",
                 columns: table => new
@@ -80,48 +96,45 @@ namespace ProjectoMauiAPI.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Agentes",
-                columns: table => new
-                {
-                    IdAgente = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    IdRol = table.Column<int>(type: "int", nullable: false),
-                    NombreAgente = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    ApellidoAgente = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    TelefonoAgente = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    CedulaAgente = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Agentes", x => x.IdAgente);
-                    table.ForeignKey(
-                        name: "FK_Agentes_Roles_IdRol",
-                        column: x => x.IdRol,
-                        principalTable: "Roles",
-                        principalColumn: "IdRol",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Usuarios",
                 columns: table => new
                 {
                     IdUsuario = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NombreUsuario = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    CodigoCasa = table.Column<string>(type: "nvarchar(5)", maxLength: 5, nullable: false),
                     ApellidoUsuario = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     CorreoUsuario = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     TelefonoUsuario = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     UbicacionUsuario = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CedulaUsuario = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
-                    ContrasenaUsuario = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    IdRol = table.Column<int>(type: "int", nullable: false)
+                    ContrasenaUsuario = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Usuarios", x => x.IdUsuario);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AgenteRoles",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdAgente = table.Column<int>(type: "int", nullable: false),
+                    IdRol = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AgenteRoles", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Usuarios_Roles_IdRol",
+                        name: "FK_AgenteRoles_Agentes_IdAgente",
+                        column: x => x.IdAgente,
+                        principalTable: "Agentes",
+                        principalColumn: "IdAgente",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AgenteRoles_Roles_IdRol",
                         column: x => x.IdRol,
                         principalTable: "Roles",
                         principalColumn: "IdRol",
@@ -151,25 +164,25 @@ namespace ProjectoMauiAPI.Migrations
                         column: x => x.IdAgente,
                         principalTable: "Agentes",
                         principalColumn: "IdAgente",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Casos_EstadosCasos_IdEstado",
                         column: x => x.IdEstado,
                         principalTable: "EstadosCasos",
                         principalColumn: "IdEstado",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Casos_Severidades_IdSeveridad",
                         column: x => x.IdSeveridad,
                         principalTable: "Severidades",
                         principalColumn: "IdSeveridad",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Casos_Usuarios_IdUsuario",
                         column: x => x.IdUsuario,
                         principalTable: "Usuarios",
                         principalColumn: "IdUsuario",
-                        onDelete: ReferentialAction.NoAction);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -294,8 +307,13 @@ namespace ProjectoMauiAPI.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Agentes_IdRol",
-                table: "Agentes",
+                name: "IX_AgenteRoles_IdAgente",
+                table: "AgenteRoles",
+                column: "IdAgente");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AgenteRoles_IdRol",
+                table: "AgenteRoles",
                 column: "IdRol");
 
             migrationBuilder.CreateIndex(
@@ -367,16 +385,14 @@ namespace ProjectoMauiAPI.Migrations
                 name: "IX_UsuarioGrupos_IdUsuario",
                 table: "UsuarioGrupos",
                 column: "IdUsuario");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Usuarios_IdRol",
-                table: "Usuarios",
-                column: "IdRol");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "AgenteRoles");
+
             migrationBuilder.DropTable(
                 name: "Archivos");
 
@@ -385,6 +401,9 @@ namespace ProjectoMauiAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "UsuarioGrupos");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
 
             migrationBuilder.DropTable(
                 name: "Mensajes");
@@ -409,9 +428,6 @@ namespace ProjectoMauiAPI.Migrations
 
             migrationBuilder.DropTable(
                 name: "Usuarios");
-
-            migrationBuilder.DropTable(
-                name: "Roles");
         }
     }
 }

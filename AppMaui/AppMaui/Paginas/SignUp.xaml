@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.SignUp"
-            >
+             NavigationPage.HasNavigationBar="False">
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
@@ -54,9 +54,28 @@
                            VerticalOptions="Center"
                            Margin="10,0" 
                            WidthRequest="190"
-                           x:Name="EmailLogin">
+                           x:Name="EntryEmail">
 
                     </Entry>
+                   
+                </Frame>
+                <Frame BorderColor="#111" 
+                       CornerRadius="3" 
+                       HeightRequest="40" 
+                       Padding="0"
+                       MaximumWidthRequest="200"
+                       Margin="0,5,0,0">
+                    <Entry Placeholder="Enter your password"
+                           Keyboard="Email"
+                           PlaceholderColor="#777"
+                           VerticalOptions="Center"
+                           Margin="10,0" 
+                           WidthRequest="190"
+                           IsPassword="True"
+                           x:Name="EntryContrasena">
+
+                    </Entry>
+
                 </Frame>
                 <HorizontalStackLayout Margin="0,3,0,0"
                                        HorizontalOptions="Center">

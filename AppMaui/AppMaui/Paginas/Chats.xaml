@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.Chats"
-             BackgroundColor="#000000">
+             BackgroundColor="#000000"
+             NavigationPage.HasNavigationBar="False">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -12,12 +13,13 @@
         <ScrollView Grid.Row="0">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="30" />
+                    <RowDefinition Height="50" />
                     <RowDefinition Height="25" />
                     <RowDefinition Height="100" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
+                <Grid Grid.Row="0"
+                      VerticalOptions="End">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -165,7 +167,9 @@
                                  HorizontalOptions="Center">
                 <ImageButton Source="casos.png"
                              HeightRequest="40"
-                             WidthRequest="40" Scale="0.8">
+                             WidthRequest="40" Scale="0.8"
+                             x:Name="ImgBtnCasos"
+                             Clicked="ImgBtnCasos_Clicked">
                 </ImageButton>
                 <Label Text="Casos"
                        FontSize="10" 

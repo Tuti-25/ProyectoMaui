@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.LoginOrSignUp"
-             BackgroundColor="#212429">
+             BackgroundColor="#212429"
+               NavigationPage.HasNavigationBar="False">
     <ScrollView>
         <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="150" />
             <RowDefinition Height="320" />
             <RowDefinition Height="150" />
-            <RowDefinition Height="150" />
+            <RowDefinition Height="200" />
 
         </Grid.RowDefinitions>
 
@@ -41,6 +42,7 @@
                     BackgroundColor="#212429"
                     Direction="Column" 
                     HorizontalOptions="Center"
+                    VerticalOptions="End"
                     >
             <Button Text="Log In"
                     Background="#ffffff"
@@ -63,19 +65,20 @@
                     BorderColor="#111"
                     BorderWidth="2"
                     Padding="-20"
-                    Clicked="BtnSignUp_Clicked">
+                    Clicked="BtnSignUp_Clicked"
+                    >
             </Button>
         </FlexLayout>
             <FlexLayout Grid.Row="3" 
                     BackgroundColor="#212429" 
-                    Direction="Row" 
                     HorizontalOptions="Center"
-                        MaximumWidthRequest="200"
+                    Direction="Row" 
                     >
                 <Label Margin="0,3,0,0"
                        LineBreakMode="WordWrap"
                        MaximumWidthRequest="200"
-                       HorizontalTextAlignment="Center">
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="By signing up, you agree to the policy and rule 3.4, allowing us to collect your" 

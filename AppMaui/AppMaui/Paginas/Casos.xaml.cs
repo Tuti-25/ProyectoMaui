@@ -18,4 +18,16 @@ public partial class Casos : ContentPage
         await Navigation.PushAsync(new CrearCaso());
 
     }
+
+    private async void BtnPerfil_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new LoginOrSignUp());
+
+    }
+
+    private async void BtnImgChat_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Chats());
+
+    }
 }
