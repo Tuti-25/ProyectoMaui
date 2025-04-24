@@ -1,47 +1,51 @@
 using Demo.ApiClient2;
+using Demo.ApiClient2.Models;
+using AppMaui;
 using Demo.ApiClient2.Models.ApiModels;
-
 
 namespace AppMaui.Paginas;
 
 public partial class IngresarDatos : ContentPage
 {
     private readonly DemoApiClientService _apiClient;
-    private Usuario _usuario;
-    public IngresarDatos(DemoApiClientService apiClient, Usuario usuario)
+    public IngresarDatos(DemoApiClientService apiClient)
     {
+
         InitializeComponent();
         _apiClient = apiClient;
-        _usuario = usuario;
     }
 
-    private async void BtnIngresar_Clicked(object sender, EventArgs e)
+    private async void btnAdd_Clicked(object sender, EventArgs e)
     {
-        if (_usuario is null)
+        await Navigation.PushModalAsync(new Test(_apiClient, null));
+    }
+
+    private async void btnShowProducts_Clicked(object sender, EventArgs e)
+    {
+        await LoadUsuarios();
+    }
+
+    private async void productListView_ItemTapped(object sender, ItemTappedEventArgs e)
+    {
+        var usuario = (Usuario)e.Item;
+        var action = await DisplayActionSheet("Action", "Cancel", null, "Edit", "Delete");
+
+        switch (action)
         {
-
-            await _apiClient.SaveUsuario(new Usuario
-            {
-
-                NombreUsuario = EntryNombre.Text,
-                ApellidoUsuario = EntryApellido.Text,
-                TelefonoUsuario = EntryNumTelefono.Text,
-                CedulaUsuario = EntryCedula.Text,
-
-            });
+            case "Edit":
+                await Navigation.PushModalAsync(new Test(_apiClient, usuario));
+                break;
+            case "Delete":
+                await _apiClient.DeleteUsuario(usuario.IdUsuario);
+                await LoadUsuarios();
+                break;
         }
-        else
-        {
-            await _apiClient.UpdateUsuario(new Usuario
-            {
-                NombreUsuario = EntryNombre.Text,
-                ApellidoUsuario = EntryApellido.Text,
-                TelefonoUsuario = EntryNumTelefono.Text,
-                CedulaUsuario = EntryCedula.Text,
 
-            });
-        }
-        await Navigation.PushAsync(new Casos());
-
+    }
+    private async Task LoadUsuarios() { 
+    
+        var usuario = await _apiClient.GetUsuarios();
+        productListView.ItemsSource = usuario;
     }
 }
+

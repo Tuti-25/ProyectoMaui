@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjectoMauiAPI.Data;
 
@@ -11,9 +12,11 @@ using ProjectoMauiAPI.Data;
 namespace ProjectoMauiAPI.Migrations
 {
     [DbContext(typeof(DemoDbContext))]
-    partial class DemoDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250423054941_RemoveCorreoFromUsuario")]
+    partial class RemoveCorreoFromUsuario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -26,30 +29,29 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdAgente")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdAgente");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAgente"));
 
                     b.Property<string>("ApellidoAgente")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("ApellidoAgente");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CedulaAgente")
+                        .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("CedulaAgente");
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("NombreAgente")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("NombreAgente");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("TelefonoAgente")
+                        .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("TelefonoAgente");
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("IdAgente");
 
@@ -60,18 +62,15 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<int>("IdAgente")
-                        .HasColumnType("int")
-                        .HasColumnName("IdAgente");
+                        .HasColumnType("int");
 
                     b.Property<int>("IdRol")
-                        .HasColumnType("int")
-                        .HasColumnName("IdRol");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -86,28 +85,26 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdArchivo")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdArchivo");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdArchivo"));
 
                     b.Property<int>("IdMensaje")
-                        .HasColumnType("int")
-                        .HasColumnName("IdMensaje");
+                        .HasColumnType("int");
 
                     b.Property<string>("NombreArchivo")
+                        .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("NombreArchivo");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("RutaArchivo")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("RutaArchivo");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoArchivo")
+                        .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("TipoArchivo");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IdArchivo");
 
@@ -120,43 +117,35 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdCaso")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdCaso");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCaso"));
 
                     b.Property<string>("DescripcionCaso")
+                        .IsRequired()
                         .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)")
-                        .HasColumnName("DescripcionCaso");
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime?>("FechaActualizacion")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("FechaActualizacion");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("FechaCreacion");
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("FechaFinalizacion")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("FechaFinalizacion");
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("IdAgente")
-                        .HasColumnType("int")
-                        .HasColumnName("IdAgente");
+                        .HasColumnType("int");
 
                     b.Property<int>("IdEstado")
-                        .HasColumnType("int")
-                        .HasColumnName("IdEstado");
+                        .HasColumnType("int");
 
                     b.Property<int>("IdSeveridad")
-                        .HasColumnType("int")
-                        .HasColumnName("IdSeveridad");
+                        .HasColumnType("int");
 
                     b.Property<int>("IdUsuario")
-                        .HasColumnType("int")
-                        .HasColumnName("IdUsuario");
+                        .HasColumnType("int");
 
                     b.HasKey("IdCaso");
 
@@ -175,37 +164,34 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdEstado")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdEstado");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdEstado"));
 
                     b.Property<string>("DescripcionEstado")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("DescripcionEstado");
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("IdEstado");
 
-                    b.ToTable("EstadosCaso");
+                    b.ToTable("EstadosCasos");
                 });
 
             modelBuilder.Entity("ProjectoMauiAPI.Models.Entities.Grupo", b =>
                 {
                     b.Property<int>("IdGrupo")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdGrupo");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdGrupo"));
 
                     b.Property<string>("DescripcionGrupo")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("DescripcionGrupo");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("FechaCreacion");
+                        .HasColumnType("datetime2");
 
                     b.HasKey("IdGrupo");
 
@@ -216,34 +202,28 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdMensaje")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdMensaje");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdMensaje"));
 
                     b.Property<string>("DescripcionMensaje")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("DescripcionMensaje");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("FechaMensaje")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("FechaMensaje");
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("IdCaso")
-                        .HasColumnType("int")
-                        .HasColumnName("IdCaso");
+                        .HasColumnType("int");
 
                     b.Property<int?>("IdGrupo")
-                        .HasColumnType("int")
-                        .HasColumnName("IdGrupo");
+                        .HasColumnType("int");
 
                     b.Property<int>("IdTipoMensaje")
-                        .HasColumnType("int")
-                        .HasColumnName("IdTipoMensaje");
+                        .HasColumnType("int");
 
                     b.Property<int>("IdUsuario")
-                        .HasColumnType("int")
-                        .HasColumnName("IdUsuario");
+                        .HasColumnType("int");
 
                     b.HasKey("IdMensaje");
 
@@ -262,31 +242,26 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdNotificacion")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdNotificacion");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdNotificacion"));
 
                     b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2")
-                        .HasColumnName("Fecha");
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("IdCaso")
-                        .HasColumnType("int")
-                        .HasColumnName("IdCaso");
+                        .HasColumnType("int");
 
                     b.Property<int?>("IdMensaje")
-                        .HasColumnType("int")
-                        .HasColumnName("IdMensaje");
+                        .HasColumnType("int");
 
                     b.Property<int>("IdUsuario")
-                        .HasColumnType("int")
-                        .HasColumnName("IdUsuario");
+                        .HasColumnType("int");
 
                     b.Property<string>("TipoNotificacion")
+                        .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("TipoNotificacion");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IdNotificacion");
 
@@ -303,19 +278,18 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdRol")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdRol");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdRol"));
 
                     b.Property<string>("DescripcionRol")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("DescripcionRol");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoRol")
+                        .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("TipoRol");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IdRol");
 
@@ -326,18 +300,16 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdSeveridad")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdSeveridad");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdSeveridad"));
 
                     b.Property<string>("DescripcionSeveridad")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("DescripcionSeveridad");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("TipoSeveridad")
-                        .HasColumnType("int")
-                        .HasColumnName("TipoSeveridad");
+                    b.Property<int>("TipoSeveridad")
+                        .HasColumnType("int");
 
                     b.HasKey("IdSeveridad");
 
@@ -348,15 +320,14 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdTipoMensaje")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdTipoMensaje");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdTipoMensaje"));
 
                     b.Property<string>("FormatoMensaje")
+                        .IsRequired()
                         .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("FormatoMensaje");
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IdTipoMensaje");
 
@@ -367,45 +338,44 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdUsuario")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdUsuario");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUsuario"));
 
                     b.Property<string>("ApellidoUsuario")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("ApellidoUsuario");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("CedulaUsuario")
+                        .IsRequired()
                         .HasMaxLength(30)
-                        .HasColumnType("nvarchar(30)")
-                        .HasColumnName("CedulaUsuario");
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("CodigoCasa")
+                        .IsRequired()
                         .HasMaxLength(5)
-                        .HasColumnType("nvarchar(5)")
-                        .HasColumnName("CodigoCasa");
+                        .HasColumnType("nvarchar(5)");
 
                     b.Property<string>("ContrasenaUsuario")
+                        .IsRequired()
                         .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)")
-                        .HasColumnName("ContrasenaUsuario");
+                        .HasColumnType("nvarchar(255)");
 
                     b.Property<string>("CorreoUsuario")
+                        .IsRequired()
                         .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)")
-                        .HasColumnName("CorreoUsuario");
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("NombreUsuario")
+                        .IsRequired()
                         .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("NombreUsuario");
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("TelefonoUsuario")
+                        .IsRequired()
                         .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)")
-                        .HasColumnName("TelefonoUsuario");
+                        .HasColumnType("nvarchar(20)");
 
                     b.HasKey("IdUsuario");
 
@@ -416,18 +386,15 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.Property<int>("IdUsuarioGrupo")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("IdUsuarioGrupo");
+                        .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdUsuarioGrupo"));
 
-                    b.Property<int?>("IdGrupo")
-                        .HasColumnType("int")
-                        .HasColumnName("IdGrupo");
+                    b.Property<int>("IdGrupo")
+                        .HasColumnType("int");
 
-                    b.Property<int?>("IdUsuario")
-                        .HasColumnType("int")
-                        .HasColumnName("IdUsuario");
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
 
                     b.HasKey("IdUsuarioGrupo");
 
@@ -561,11 +528,15 @@ namespace ProjectoMauiAPI.Migrations
                 {
                     b.HasOne("ProjectoMauiAPI.Models.Entities.Grupo", "Grupo")
                         .WithMany()
-                        .HasForeignKey("IdGrupo");
+                        .HasForeignKey("IdGrupo")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ProjectoMauiAPI.Models.Entities.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("IdUsuario");
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Grupo");
 

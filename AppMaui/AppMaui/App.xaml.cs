@@ -4,11 +4,10 @@ namespace AppMaui
 {
     public partial class App : Application
     {
-        public App()
+        public App(IngresarDatos ingresarDatos)
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new IngresarDatos());
-
+            MainPage = ingresarDatos;
 
         }
     }
