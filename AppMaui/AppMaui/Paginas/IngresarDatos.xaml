@@ -2,8 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.IngresarDatos"
              Title="IngresarDatos"
-             NavigationPage.HasNavigationBar="False"
-             BackgroundColor="#000000">
+             NavigationPage.HasNavigationBar="False">
 
 
     <FlexLayout Direction="Column">

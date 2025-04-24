@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Text;
+using System;
 
 namespace Demo.ApiClient2
 {
@@ -20,7 +21,15 @@ namespace Demo.ApiClient2
 
         public async Task<List<Usuario>?> GetUsuarios()
         {
-            return await _httpClient.GetFromJsonAsync<List<Usuario>?>("/api/User");
+            try
+            {
+                return await _httpClient.GetFromJsonAsync<List<Usuario>?>("/api/User");
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Request failed: {ex.Message}");
+                throw;
+            }
         }
 
 
@@ -41,7 +50,7 @@ namespace Demo.ApiClient2
 
         public async Task UpdateUsuario(Usuario usuario)
         {
-            await _httpClient.PutAsJsonAsync("/api/User", usuario.IdUsuario);
+            await _httpClient.PutAsJsonAsync("/api/User", usuario);
         }
 
         public async Task DeleteUsuario(int idusuario)
