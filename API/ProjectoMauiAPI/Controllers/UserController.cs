@@ -11,17 +11,20 @@ namespace ProjectoMauiAPI.Controllers
     public class UserController : ControllerBase
     {
         private readonly DemoDbContext _demoDbContext;
-        public UserController(DemoDbContext demoDbContext) => _demoDbContext = demoDbContext;
+        public UserController(DemoDbContext demoDbContext)
+        {
+            _demoDbContext = demoDbContext;
+        }
         
         [HttpGet]
         public ActionResult<IEnumerable<Usuario>> Get()
         {
-            return _demoDbContext.Usuarios.ToList();
+            return _demoDbContext.Usuarios;
         }
 
-        [HttpGet("IdUsuario")]
 
-        public async Task<ActionResult<Usuario>> GetById(int IdUsuario)
+        [HttpGet("{IdUsuario}")]
+        public async Task<ActionResult<Usuario?>> GetById(int IdUsuario)
         {
             return await _demoDbContext.Usuarios.Where(x => x.IdUsuario == IdUsuario).SingleOrDefaultAsync();
 
@@ -49,8 +52,10 @@ namespace ProjectoMauiAPI.Controllers
             var usuarioGetByIdResult = await GetById(IdUsuario);
 
             if (usuarioGetByIdResult.Value is null)
+            {
                 return NotFound();
-
+            }
+             
             _demoDbContext.Remove(usuarioGetByIdResult.Value);
             await _demoDbContext.SaveChangesAsync();
 

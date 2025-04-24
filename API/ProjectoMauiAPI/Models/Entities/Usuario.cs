@@ -1,49 +1,46 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace ProjectoMauiAPI.Models.Entities
 {
+    [Table("Usuarios")]
     public class Usuario
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("IdUsuario")]
         public int IdUsuario { get; set; }
 
-        [Required]
+        [Column("NombreUsuario")]
         [MaxLength(100)]
-        public string NombreUsuario { get; set; }
+        public string? NombreUsuario { get; set; }
 
-        [Required]
+        [Column("CodigoCasa")]
         [MaxLength(5)]
-        public string CodigoCasa { get; set; }
+        public string? CodigoCasa { get; set; }
 
-        [Required]
+        [Column("ApellidoUsuario")]
         [MaxLength(100)]
-        public string ApellidoUsuario { get; set; }
+        public string? ApellidoUsuario { get; set; }
 
-        [Required]
+        [Column("CorreoUsuario")]
         [EmailAddress]
         [MaxLength(200)]
-        public string CorreoUsuario { get; set; }
+        public string? CorreoUsuario { get; set; }
 
-        [Required]
+        [Column("TelefonoUsuario")]
         [Phone]
         [MaxLength(20)]
-        public string TelefonoUsuario { get; set; }
+        public string? TelefonoUsuario { get; set; }
 
-        [Required]
-        public string UbicacionUsuario { get; set; }
-
-        [Required]
+        [Column("CedulaUsuario")]
         [MaxLength(30)]
-        public string CedulaUsuario { get; set; }
+        public string? CedulaUsuario { get; set; }
 
-        [Required]
+        [Column("ContrasenaUsuario")]
         [MaxLength(255)]
-        public string ContrasenaUsuario { get; set; }
-
+        public string? ContrasenaUsuario { get; set; }
     }
-
 }
 

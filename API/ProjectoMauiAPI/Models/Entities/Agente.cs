@@ -1,33 +1,37 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
+
 
 namespace ProjectoMauiAPI.Models.Entities
 {
+    [Table("Agentes")]
     public class Agente
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Column("IdAgente")]
         public int IdAgente { get; set; }
 
-        [Required]
+        [Column("NombreAgente")]
         [MaxLength(100)]
-        public string NombreAgente { get; set; }
+        public string? NombreAgente { get; set; }
 
-        [Required]
+        [Column("ApellidoAgente")]
         [MaxLength(100)]
-        public string ApellidoAgente { get; set; }
+        public string? ApellidoAgente { get; set; }
 
-        [Required]
+        [Column("TelefonoAgente")]
         [Phone]
         [MaxLength(20)]
-        public string TelefonoAgente { get; set; }
+        public string? TelefonoAgente { get; set; }
 
-        [Required]
+        [Column("CedulaAgente")]
         [MaxLength(50)]
-        public string CedulaAgente { get; set; }
+        public string? CedulaAgente { get; set; }
 
-        // Relación muchos a muchos con Roles
-        public ICollection<AgenteRoles> AgenteRoles { get; set; }
+        public ICollection<AgenteRoles>? AgenteRoles { get; set; }
     }
 }
+

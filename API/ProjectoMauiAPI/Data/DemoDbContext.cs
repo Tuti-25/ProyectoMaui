@@ -9,7 +9,7 @@ namespace ProjectoMauiAPI.Data
         {
 
         }
-    public DbSet<Agente> Agentes { get; set; }
+        public DbSet<Agente> Agentes { get; set; }
         public DbSet<Archivo> Archivos { get; set; }
         public DbSet<Caso> Casos { get; set; }
         public DbSet<EstadoCaso> EstadosCasos { get; set; }
