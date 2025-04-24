@@ -17,8 +17,9 @@ namespace AppMaui
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-            builder.Services.AddDemoApiClientService(x => x.ApiBaseAddress = "http://localhost:5151");
+            builder.Services.AddDemoApiClientService(x => x.ApiBaseAddress = "http://192.168.100.92:5151");
             builder.Services.AddTransient<IngresarDatos>();
+            builder.Services.AddTransient<App>();
 
 #if DEBUG
             builder.Logging.AddDebug();
