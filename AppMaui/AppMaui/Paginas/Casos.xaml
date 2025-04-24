@@ -38,6 +38,26 @@
                             
                         </ImageButton>
                     </FlexLayout>
+
+                    <FlexLayout Grid.Column="2"
+                                HorizontalOptions="End"
+                                VerticalOptions="Center"
+                                Margin="5,0,5,0">
+                        <ImageButton 
+                            Source="search.png"
+                            HeightRequest="20"
+                            WidthRequest="20"
+                            Scale="0.5"/>  
+                       
+                        <ImageButton 
+                            x:Name="BtnConfiguracion"
+                            Clicked="BtnConfiguracion_Clicked"
+                            Source="configuracion.png" 
+                            HeightRequest="20"
+                            WidthRequest="20"
+                            Scale="0.5"/>   
+                    </FlexLayout>
+
                     <FlexLayout Grid.Column="1" 
                                 HorizontalOptions="End"
                                 Margin="0,0,10,0">

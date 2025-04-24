@@ -1,3 +1,5 @@
+using Demo.ApiClient2;
+
 namespace AppMaui.Paginas;
 
 public partial class SignUp : ContentPage
@@ -10,6 +12,6 @@ public partial class SignUp : ContentPage
 
     private async void BtnSignUp2_Clicked(object sender, EventArgs e)
     {
-		await Navigation.PushAsync(new IngresarDatos());
+        await Navigation.PushAsync(new IngresarDatos());
     }
-}
+};

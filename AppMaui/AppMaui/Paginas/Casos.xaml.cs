@@ -30,4 +30,10 @@ public partial class Casos : ContentPage
         await Navigation.PushAsync(new Chats());
 
     }
+    private void BtnConfiguracion_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new Configuracion());
+    }
+
+
 }
