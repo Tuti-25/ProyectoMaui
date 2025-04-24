@@ -1,17 +1,17 @@
 ﻿using Demo.ApiClient2.Models;
 using Demo.ApiClient2.Models.ApiModels;
-using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
-using System.Text;
 using System.Threading.Tasks;
+using System.Text;
 
 namespace Demo.ApiClient2
 {
     public class DemoApiClientService
     {
         private readonly HttpClient _httpClient;
+
         public DemoApiClientService(ApiClientOptions apiClientOptions)
         {
             _httpClient = new HttpClient();
@@ -20,27 +20,33 @@ namespace Demo.ApiClient2
 
         public async Task<List<Usuario>?> GetUsuarios()
         {
-            return await _httpClient.GetFromJsonAsync<List<Usuario>>("api/user");
+            return await _httpClient.GetFromJsonAsync<List<Usuario>?>("/api/User");
         }
+
+
 
         public async Task<Usuario?> GetById(int idusuario)
         {
-            return await _httpClient.GetFromJsonAsync<Usuario>($"api/user/{idusuario}");
+            return await _httpClient.GetFromJsonAsync<Usuario?>($"/api/User/{idusuario}");
         }
+
+
 
         public async Task SaveUsuario(Usuario usuario)
         {
-            await _httpClient.PostAsJsonAsync("api/user", usuario);
+            await _httpClient.PostAsJsonAsync("/api/User",usuario);
         }
+
+
 
         public async Task UpdateUsuario(Usuario usuario)
         {
-            await _httpClient.PutAsJsonAsync("api/user", usuario);
+            await _httpClient.PutAsJsonAsync("/api/User", usuario.IdUsuario);
         }
 
         public async Task DeleteUsuario(int idusuario)
         {
-            await _httpClient.DeleteAsync($"api/user/{idusuario}");
+            await _httpClient.DeleteAsync($"/api/User/{idusuario}");
         }
     }
 }

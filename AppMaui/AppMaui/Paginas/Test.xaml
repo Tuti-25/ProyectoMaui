@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Paginas.Test"
+             Title="Test">
+
+    <VerticalStackLayout Padding="10">
+        <Entry Placeholder="Ingrese su nombre"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       Visual="Default"
+                       x:Name="EntryNombre"></Entry>
+        <Entry Placeholder="Ingrese su apellido"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryApellido"></Entry>
+        <Entry      Placeholder="Ingrese su número de teléfono"
+                    Keyboard="Telephone"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                    x:Name="EntryNumTelefono"></Entry>
+        <Entry Placeholder="Ingrese su número de cédula"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryCedula"></Entry>
+        <Entry Placeholder="Ingrese su número de casa"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryNumCasa"></Entry>
+        <Entry Placeholder="Ingrese su correo"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryCorreo"></Entry>
+        <Entry Placeholder="Ingrese su contrasena"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryContrasena"></Entry>
+        <Button x:Name="btnSave"
+                Text="Save"
+                Margin="0,20"
+                Clicked="btnSave_Clicked">
+        </Button>
+        <Button x:Name="btnCancel"
+                Text="Cancel"
+                Clicked="btnCancel_Clicked">
+        </Button>
+    </VerticalStackLayout>
+</ContentPage>
