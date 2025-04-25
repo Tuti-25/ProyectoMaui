@@ -61,4 +61,10 @@ public partial class CrearCaso : ContentPage
             BtnImgSeveridad.Source = imagen;
         }
     }
+
+
+    private void ImageButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -1,8 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
 
 namespace ProjectoMauiAPI.Models.Entities
 {
@@ -31,7 +28,10 @@ namespace ProjectoMauiAPI.Models.Entities
         [MaxLength(50)]
         public string? CedulaAgente { get; set; }
 
-        public ICollection<AgenteRoles>? AgenteRoles { get; set; }
+        [Column("IdRol")]
+        public int IdRol { get; set; }
+
+        [ForeignKey("IdRol")]
+        public Rol? Rol { get; set; }
     }
 }
-

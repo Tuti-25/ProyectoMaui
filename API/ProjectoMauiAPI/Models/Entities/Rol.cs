@@ -1,7 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-
 
 namespace ProjectoMauiAPI.Models.Entities
 {
@@ -9,7 +7,6 @@ namespace ProjectoMauiAPI.Models.Entities
     public class Rol
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("IdRol")]
         public int IdRol { get; set; }
 
@@ -20,6 +17,6 @@ namespace ProjectoMauiAPI.Models.Entities
         [Column("DescripcionRol")]
         public string? DescripcionRol { get; set; }
 
-        public ICollection<AgenteRoles>? AgenteRoles { get; set; }
+        public ICollection<Agente>? Agentes { get; set; }
     }
 }

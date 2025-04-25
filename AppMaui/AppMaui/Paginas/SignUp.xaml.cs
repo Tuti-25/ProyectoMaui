@@ -1,6 +1,7 @@
 using Demo.ApiClient2;
 using Demo.ApiClient2.Models.ApiModels;
 using System.Text.RegularExpressions;
+using BCrypt.Net;
 
 namespace AppMaui.Paginas;
 
@@ -23,13 +24,13 @@ public partial class SignUp : ContentPage
 
         if (string.IsNullOrEmpty(correo) || string.IsNullOrEmpty(contrasena))
         {
-            await DisplayAlert("Error", "No ha ingresado un valor en el correo o contraseña", "Aceptar");
+            await DisplayAlert("Error", "No ha ingresado un valor en el correo o contrasena", "Aceptar");
             return;
         }
 
         if (!EsCorreoValido(correo))
         {
-            await DisplayAlert("Correo inválido", "Por favor ingrese un correo válido", "Aceptar");
+            await DisplayAlert("Correo inválido", "Por favor ingrese un correo valido", "Aceptar");
             return;
         }
 
@@ -41,10 +42,12 @@ public partial class SignUp : ContentPage
             return;
         }
 
+        string contrasenaEncriptada = BCrypt.Net.BCrypt.HashPassword(contrasena);
+
         var nuevoUsuario = new Usuario
         {
             CorreoUsuario = correo,
-            ContrasenaUsuario = contrasena
+            ContrasenaUsuario = contrasenaEncriptada
         };
 
         await _apiClient.SaveUsuario(nuevoUsuario);
@@ -53,7 +56,7 @@ public partial class SignUp : ContentPage
 
         if (usuarioCreado == null)
         {
-            await DisplayAlert("Error", "No se pudo obtener el usuario recién creado", "Aceptar");
+            await DisplayAlert("Error", "No se pudo obtener el usuario recien creado", "Aceptar");
             return;
         }
 
