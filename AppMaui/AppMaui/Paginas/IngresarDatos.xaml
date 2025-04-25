@@ -1,50 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.IngresarDatos"
              Title="IngresarDatos"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="#000000">
 
+    <Grid>
+        <BoxView BackgroundColor="#111111"
+                 HeightRequest="550"
+                 WidthRequest="310"
+                 CornerRadius="10">
+            <BoxView.Shadow>
+                <Shadow Brush="#444"
+                        Opacity="0.5"
+                        Offset="10,10" />
+            </BoxView.Shadow>
+        </BoxView>
+        <Grid 
+              WidthRequest="300"
+              HeightRequest="600"
+              Padding="20"
+              RowSpacing="10"
+              Margin="0,0,0,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="50" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
 
-    <FlexLayout Direction="Column">
-        <HorizontalStackLayout Padding="10" 
-                               FlexLayout.Basis="120">
-            <Button x:Name="btnAdd" Text="Add" Margin="0,0,10,0" Clicked="btnAdd_Clicked"></Button>
-            <Button x:Name="btnShowProducts" Text="Show Products" Clicked="btnShowProducts_Clicked"></Button>
-        </HorizontalStackLayout>
-        <ListView x:Name="productListView" FlexLayout.Grow="1" HasUnevenRows="True" ItemTapped="productListView_ItemTapped">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <VerticalStackLayout Padding="5">
-                            <Label Text="{Binding ProductName}"
-                                   FontSize="17"
-                                   FontAttributes="Bold">
-                            </Label>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                    <ColumnDefinition Width="*"></ColumnDefinition>
-                                    <ColumnDefinition Width="Auto"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0"
-                                       Text="{Binding ProductCode}">
-                                </Label>
-                                <Label Grid.Column="2"
-                                       Text="{Binding Price}"
-                                       FontAttributes="Bold"
-                                       TextColor="Red">
-
-                                </Label>
-                            </Grid>
-                        </VerticalStackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-
-        </ListView>
-
-    </FlexLayout>
-
+            <Label Grid.Row="0"
+                   FontSize="25"
+                   Text="Permitenos conocerte mejor"
+                   HorizontalTextAlignment="Center"
+                   TextColor="White"
+                   Margin="0,0,0,10"
+                   FontAttributes="Bold">
+            </Label>
+            <Frame Grid.Row="1"
+                   BackgroundColor="#2b2b2b"
+                   CornerRadius="10"
+                   Padding="5"
+                   BorderColor="Transparent">
+                <Entry Placeholder="Ingrese su nombre"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       Visual="Default"
+                       x:Name="EntryNombre"></Entry>
+            </Frame>
+            <Frame Grid.Row="2"
+                   BackgroundColor="#2b2b2b"
+                   CornerRadius="10"
+                   Padding="5"
+                   BorderColor="Transparent">
+                <Entry Placeholder="Ingrese su apellido"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryApellido"></Entry>
+            </Frame>
+            <Frame Grid.Row="3"
+                   BackgroundColor="#2b2b2b"
+                   CornerRadius="10"
+                   Padding="5"
+                   BorderColor="Transparent">
+                <Entry 
+                    Keyboard="Telephone"
+                    Placeholder="Ingrese su numero de telefono"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                    x:Name="EntryNumTelefono"></Entry>
+            </Frame>
+            <Frame Grid.Row="4"
+                   BackgroundColor="#2b2b2b"
+                   CornerRadius="10"
+                   Padding="5"
+                   BorderColor="Transparent">
+                <Entry Placeholder="Ingrese su numero de cedula"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryCedula"></Entry>
+            </Frame>
+            <Frame Grid.Row="5"
+                   BackgroundColor="#2b2b2b"
+                   CornerRadius="10"
+                   Padding="5"
+                   BorderColor="Transparent">
+                <Entry Placeholder="Ingrese su numero de casa"
+                       PlaceholderColor="Gray"
+                       TextColor="#676767"
+                       BackgroundColor="Transparent"
+                       x:Name="EntryNumCasa"></Entry>
+            </Frame>
+            <Button Grid.Row="8"
+                    Text="Ingresar"
+                    BackgroundColor="#3358ff"
+                    TextColor="White"
+                    CornerRadius="10" 
+                    FontAttributes="Bold"
+                    x:Name="BtnIngresar"
+                    Clicked="BtnIngresar_Clicked"/>
+        </Grid>
+    </Grid>
 </ContentPage>
+
+
 
 

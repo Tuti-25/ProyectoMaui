@@ -6,6 +6,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using System.Text;
 using System;
+using System.Linq;
 
 namespace Demo.ApiClient2
 {
@@ -31,22 +32,16 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
-
-
-
         public async Task<Usuario?> GetById(int idusuario)
         {
             return await _httpClient.GetFromJsonAsync<Usuario?>($"/api/User/{idusuario}");
         }
 
 
-
         public async Task SaveUsuario(Usuario usuario)
         {
-            await _httpClient.PostAsJsonAsync("/api/User",usuario);
+            await _httpClient.PostAsJsonAsync("/api/User", usuario);
         }
-
-
 
         public async Task UpdateUsuario(Usuario usuario)
         {
@@ -57,5 +52,25 @@ namespace Demo.ApiClient2
         {
             await _httpClient.DeleteAsync($"/api/User/{idusuario}");
         }
+
+
+        public async Task<Usuario?> BuscarUsuarioPorCorreo(string correo)
+        {
+            var usuarios = await GetUsuarios();
+            return usuarios.FirstOrDefault(u => u.CorreoUsuario == correo);
+        }
+
+        public async Task<Usuario?> BuscarUsuarioPorCedula(string cedula)
+        {
+            var response = await _httpClient.GetAsync($"/api/User/buscar-por-cedula?cedula={cedula}");
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<Usuario>();
+            }
+
+            return null;
+        }
+
     }
 }

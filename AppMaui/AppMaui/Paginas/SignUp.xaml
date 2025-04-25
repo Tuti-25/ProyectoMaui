@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AppMaui.Paginas.SignUp"
-             NavigationPage.HasNavigationBar="False">
+             x:Class="AppMaui.Paginas.SignUp">
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
@@ -14,10 +13,10 @@
             </Grid.RowDefinitions>
 
             <FlexLayout Grid.Row="0"
-                        BackgroundColor="#ffffff"
-                        Direction="Column"
-                        AlignItems="Center"
-                        JustifyContent="Center">
+                         BackgroundColor="#ffffff"
+                         Direction="Column"
+                         AlignItems="Center"
+                         JustifyContent="Center">
                 <HorizontalStackLayout Margin="0,10,0,20">
                     <Image Source="emergency_two.png"
                            HeightRequest="40"
@@ -32,81 +31,62 @@
 
                 <Label Text="Sign up to continue"
                        FontAttributes="Bold"
-                       FontSize="15"
-                       >
-
-                </Label>
+                       FontSize="15" />
             </FlexLayout>
 
             <FlexLayout Grid.Row="1"
-                        BackgroundColor="#ffffff"
-                        HorizontalOptions="Center"
-                        Direction="Column"
-                        Margin="0,20,0,0">
+                         BackgroundColor="#ffffff"
+                         HorizontalOptions="Center"
+                         Direction="Column"
+                         Margin="0,20,0,0">
                 <Frame BorderColor="#111" 
                        CornerRadius="3" 
                        HeightRequest="40" 
                        Padding="0"
                        MaximumWidthRequest="200">
-                    <Entry Placeholder="Enter your email"
+                    <Entry Placeholder="Ingrese su email"
                            Keyboard="Email"
                            PlaceholderColor="#777"
                            VerticalOptions="Center"
                            Margin="10,0" 
                            WidthRequest="190"
-                           x:Name="EntryEmail">
-
-                    </Entry>
-                   
+                           x:Name="EntryMail" />
                 </Frame>
                 <Frame BorderColor="#111" 
                        CornerRadius="3" 
                        HeightRequest="40" 
                        Padding="0"
-                       MaximumWidthRequest="200"
-                       Margin="0,5,0,0">
-                    <Entry Placeholder="Enter your password"
-                           Keyboard="Email"
+                       MaximumWidthRequest="200">
+                    <Entry Placeholder="Ingrese su contrasena"
+                           IsPassword="True"
                            PlaceholderColor="#777"
                            VerticalOptions="Center"
                            Margin="10,0" 
                            WidthRequest="190"
-                           IsPassword="True"
-                           x:Name="EntryContrasena">
-
-                    </Entry>
-
+                           x:Name="EntryContrasena" />
                 </Frame>
                 <HorizontalStackLayout Margin="0,3,0,0"
-                                       HorizontalOptions="Center">
+                                        HorizontalOptions="Center">
                     <Label Margin="0,3,0,0"
-                       LineBreakMode="WordWrap"
-                       MaximumWidthRequest="200"
-                       HorizontalTextAlignment="Center">
+                           LineBreakMode="WordWrap"
+                           MaximumWidthRequest="200"
+                           HorizontalTextAlignment="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="By signing up, you agree to the policy and rule 3.4, allowing us to collect your" 
-                                  TextColor="#5b5e65"
-                                  FontSize="9"
-                                  >
-                                </Span>
-                                <Span Text=" credit card information." 
-                                  TextColor="#1765d1"
-                                        FontSize="10"
-                                  TextDecorations="Underline"
-                                  >
-                                </Span>
+                                <Span Text="And"
+                                      TextColor="Black"
+                                      FontSize="10" />
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>
-
                 </HorizontalStackLayout>
             </FlexLayout>
+
             <FlexLayout Grid.Row="2"
-                        BackgroundColor="#ffffff"
-                        AlignItems="Center"
-                        VerticalOptions="Start"
-                        Direction="Column">
+                         BackgroundColor="#ffffff"
+                         AlignItems="Center"
+                         VerticalOptions="Start"
+                         Direction="Column">
                 <Button BackgroundColor="#0b65e3"
                         Text="Sign Up"
                         TextColor="#ffffff"
@@ -116,14 +96,11 @@
                         Margin="0,3,0,0"
                         FontAttributes="Bold"
                         x:Name="BtnSignUp2"
-                        Clicked="BtnSignUp2_Clicked">
-                </Button>
+                        Clicked="BtnSignUp2_Clicked" />
                 <Label Text="Or continue with:"
                        TextColor="#666"
                        FontAttributes="Bold"
-                       Margin="0,6,0,0">
-
-                </Label>
+                       Margin="0,6,0,0" />
 
                 <ImageButton Source="google.jpg"
                              WidthRequest="370"
@@ -132,10 +109,7 @@
                              BorderWidth="0.4"
                              BackgroundColor="#ffffff"
                              Margin="0,10,3,2"
-                             Padding="0,0,0,5"
-                            >
-
-                </ImageButton>
+                             Padding="0,0,0,5" />
                 <ImageButton Source="microsoft.jpg"
                              WidthRequest="370"
                              HeightRequest="50"
@@ -143,9 +117,7 @@
                              BorderWidth="0.4"
                              BackgroundColor="#ffffff"
                              Margin="4,4,3,2"
-                             Padding="0,5,0,5">
-
-                </ImageButton>
+                             Padding="0,5,0,5" />
                 <ImageButton Source="apple.jpg"
                              WidthRequest="370"
                              HeightRequest="50"
@@ -153,9 +125,7 @@
                              BorderWidth="0.4"
                              BackgroundColor="#ffffff"
                              Margin="0,4,3,2"
-                             Padding="0,0,8,5">
-
-                </ImageButton>
+                             Padding="0,0,8,5" />
                 <ImageButton Source="slack.jpg"
                              WidthRequest="370"
                              HeightRequest="50"
@@ -163,69 +133,51 @@
                              BorderWidth="0.4"
                              BackgroundColor="#ffffff"
                              Margin="0,4,6,2"
-                             Padding="0,0,0,5"
-                             >
-
-                </ImageButton>
-
+                             Padding="0,0,0,5" />
                 <BoxView BackgroundColor="#777"
-                             HeightRequest="0.5"
-                             WidthRequest="270"
-                         Margin="0,20,0,0">
+                         HeightRequest="0.5"
+                         WidthRequest="270"
+                         Margin="0,20,0,0" />
+            </FlexLayout>
 
-                </BoxView>
-            </FlexLayout>
             <FlexLayout Grid.Row="3"
-                        BackgroundColor="#ffffff">
-            </FlexLayout>
+                         BackgroundColor="#ffffff" />
+
             <FlexLayout Grid.Row="4"
-                        BackgroundColor="#ffffff"
-                        Direction="Column"
-                        AlignItems="Center">
+                         BackgroundColor="#ffffff"
+                         Direction="Column"
+                         AlignItems="Center">
                 <Label Text="Universidad Latinoamericana de Ciencia y Tecnologia"
                        TextColor="#666"
                        FontSize="10"
-                       Margin="0,5,0,0">
-
-                </Label>
+                       Margin="0,5,0,0" />
                 <Label Text="Privacy Policy · User Notice"
                        TextColor="#555"
                        FontSize="10"
-                       Margin="0,3,0,0">
-
-                </Label>
+                       Margin="0,3,0,0" />
                 <Label Text="This site is protected by rosanaMaria and the team"
                        TextColor="#555"
                        FontSize="10"
-                        Margin="0,3,0,0">
-
-                </Label>
+                       Margin="0,3,0,0" />
                 <Label Margin="0,3,0,0">
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Privacy Policy" 
                                   TextColor="#1765d1"
-                                  FontSize="10">
-                            </Span>
+                                  FontSize="10" />
                             <Span Text=" and " 
                                   TextColor="#555"
-                                        FontSize="10">
-                            </Span>
+                                  FontSize="10" />
                             <Span Text="Terms of Service"
                                   TextColor="#1765d1"
-                                        FontSize="10">
-                            </Span>
+                                  FontSize="10" />
                             <Span Text=" apply"
                                   TextColor="#555"
-                                        FontSize="10"
-                                  >
-                            </Span>
+                                  FontSize="10" />
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-
             </FlexLayout>
-
         </Grid>
     </ScrollView>
 </ContentPage>

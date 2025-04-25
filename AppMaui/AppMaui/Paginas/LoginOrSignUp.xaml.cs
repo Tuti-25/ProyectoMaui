@@ -5,21 +5,24 @@ namespace AppMaui.Paginas;
 
 public partial class LoginOrSignUp : ContentPage
 {
+    private readonly DemoApiClientService _apiClient;
 
-    public LoginOrSignUp()
-	{
-		InitializeComponent();
- 
+
+    public LoginOrSignUp(DemoApiClientService apiClient)
+    {
+        InitializeComponent();
+        _apiClient = apiClient;
     }
+
 
     private async void BtnLogIn_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Login());
+        await Navigation.PushModalAsync(new Login(_apiClient));
     }
     private async void BtnSignUp_Clicked(object sender, EventArgs e)
     {
         var usuarioNuevo = new Usuario();
-        await Navigation.PushAsync(new SignUp());
-
+        await Navigation.PushModalAsync(new SignUp(_apiClient, usuarioNuevo));
     }
+
 }
