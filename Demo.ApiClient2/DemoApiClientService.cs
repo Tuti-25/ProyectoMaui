@@ -72,5 +72,12 @@ namespace Demo.ApiClient2
             return null;
         }
 
+        public async Task<Usuario?> ValidarCredenciales(string correo, string contrasena)
+        {
+            var usuarios = await GetUsuarios();
+            return usuarios.FirstOrDefault(u => u.CorreoUsuario == correo && u.ContrasenaUsuario == contrasena);
+        }
+
+
     }
 }
