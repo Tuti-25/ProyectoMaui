@@ -48,81 +48,97 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <VerticalStackLayout Grid.Column="0"
-                                 HorizontalOptions="Center"
-                                 Margin="0,0,0,0">
+                     HorizontalOptions="Center"
+                     Margin="0,0,0,0">
+                <Label Text="Creador del caso"
+           TextColor="#ffffff"
+           FontSize="13"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           Margin="0,0,0,5" />
+
                 <Frame BackgroundColor="#2c2c2e"
-                       HeightRequest="50"
-                       CornerRadius="10"
-                       Padding="0"
-                       BorderColor="Transparent">
+           HeightRequest="50"
+           CornerRadius="10"
+           Padding="0"
+           BorderColor="Transparent">
                     <Grid Grid.Column="0"
-                          WidthRequest="150">
+              WidthRequest="150">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="50" />
                             <ColumnDefinition Width="60" />
-                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <ImageButton Grid.Column="0"
-                                     HorizontalOptions="Center"
-                                     Source="linux.png"
-                                     Scale="0.5"
-                                     Background="#2c2c2e" />
-                        <Label Grid.Column="1"
-                               VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="Start"
-                               Text="Tuti"
-                               TextColor="#ffffff"
-                               FontSize="13"
-                               FontAttributes="Bold"
-                               Margin="0,0,0,0" />
-                        <Label Grid.Column="2"
-                               Text="↓"
-                               TextColor="#868687"
-                               FontSize="20"
-                               VerticalTextAlignment="Center"
-                               HorizontalOptions="End"
-                               Margin="0,0,5,0" />
+                         HorizontalOptions="Center"
+                         Source="linux.png"
+                         Scale="0.5"
+                         Background="#2c2c2e" />
+                        <Label x:Name="LblNombreCreadorCaso"
+       Grid.Column="1"
+       VerticalTextAlignment="Center"
+       HorizontalTextAlignment="Start"
+       Text="Tuti"
+       TextColor="#8b8a8f"
+       FontSize="13"
+       FontAttributes="Bold"
+       Margin="0,0,0,0" />
+
+
                     </Grid>
                 </Frame>
             </VerticalStackLayout>
             <VerticalStackLayout Grid.Column="1"
-                                 HorizontalOptions="Center"
-                                 Margin="0,0,0,0">
+                     HorizontalOptions="Center"
+                     Margin="0,0,0,0">
+                <Label Text="Severidad del caso"
+           TextColor="#ffffff"
+           FontSize="13"
+           FontAttributes="Bold"
+           HorizontalOptions="Center"
+           Margin="0,0,0,5" />
+
                 <Frame BackgroundColor="#2c2c2e"
-                       HeightRequest="50"
-                       CornerRadius="10"
-                       Padding="0"
-                       BorderColor="Transparent">
-                    <Grid Grid.Column="0"
-                          WidthRequest="150">
+       HeightRequest="50"
+       CornerRadius="10"
+       Padding="0"
+       BorderColor="Transparent">
+                    <Grid Grid.Column="0" WidthRequest="150">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="50" />
                             <ColumnDefinition Width="60" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <ImageButton Grid.Column="0"
-                                     HorizontalOptions="Center"
-                                     Source="uno.png"
-                                     Scale="0.5"
-                                     Background="#2c2c2e" />
+                                     x:Name="BtnImgSeveridad"
+                     HorizontalOptions="Center"
+                     Source="uno.png"
+                     Scale="0.5"
+                     Background="#2c2c2e" />
                         <Label Grid.Column="1"
-                               VerticalTextAlignment="Center"
-                               HorizontalTextAlignment="Start"
-                               Text="Severidad"
-                               TextColor="#ffffff"
-                               FontSize="12"
-                               FontAttributes="Bold"
-                               Margin="0,0,0,0" />
+                               x:Name="LblSeveridad"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Start"
+               Text="Severidad"
+               TextColor="#8b8a8f"
+               FontSize="12"
+               FontAttributes="Bold"
+               Margin="0,0,0,0" />
                         <Label Grid.Column="2"
-                               Text="↓"
-                               TextColor="#868687"
-                               FontSize="20"
-                               VerticalTextAlignment="Center"
-                               HorizontalOptions="End"
-                               Margin="0,0,5,0" />
+               Text="↓"
+               TextColor="#868687"
+               FontSize="20"
+               VerticalTextAlignment="Center"
+               HorizontalOptions="End"
+               Margin="0,0,5,0" />
                     </Grid>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+
+                        </TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
                 </Frame>
             </VerticalStackLayout>
+
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
@@ -146,7 +162,7 @@
                 Source="linux.png"
                          HeightRequest="10"
                          WidthRequest="10">
-                
+
             </ImageButton>
         </Grid>
         <Grid Grid.Row="3">
