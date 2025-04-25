@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ProjectoMauiAPI.Data;
 using ProjectoMauiAPI.Models.Entities;
+using BCrypt.Net;
 
 namespace ProjectoMauiAPI.Controllers
 {
@@ -30,13 +31,28 @@ namespace ProjectoMauiAPI.Controllers
 
         }
 
+
+
+
         [HttpPost]
-        public async Task<ActionResult> Create(Usuario usuario)
+    public async Task<ActionResult> Create(Usuario usuario)
+    {
+        var existe = await _demoDbContext.Usuarios
+            .AnyAsync(u => u.CorreoUsuario == usuario.CorreoUsuario);
+
+        if (existe)
         {
-           await  _demoDbContext.Usuarios.AddAsync(usuario);
-           await _demoDbContext.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new {idusuario = usuario.IdUsuario}, usuario);
+            return BadRequest("El correo ya está en uso.");
         }
+
+        usuario.ContrasenaUsuario = BCrypt.Net.BCrypt.HashPassword(usuario.ContrasenaUsuario);
+
+        await _demoDbContext.Usuarios.AddAsync(usuario);
+        await _demoDbContext.SaveChangesAsync();
+
+        return CreatedAtAction(nameof(GetById), new { idusuario = usuario.IdUsuario }, usuario);
+    }
+
 
         [HttpPut] 
         public async Task<ActionResult> Update(Usuario usuario)
@@ -60,6 +76,18 @@ namespace ProjectoMauiAPI.Controllers
             await _demoDbContext.SaveChangesAsync();
 
             return Ok();
+        }
+
+        [HttpGet("buscar-por-cedula")]
+        public async Task<ActionResult<Usuario>> BuscarUsuarioPorCedula(string cedula)
+        {
+            var usuario = await _demoDbContext.Usuarios
+                .FirstOrDefaultAsync(u => u.CedulaUsuario == cedula);
+
+            if (usuario == null)
+                return NotFound();
+
+            return Ok(usuario);
         }
 
 

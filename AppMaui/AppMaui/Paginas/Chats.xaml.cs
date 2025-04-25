@@ -1,15 +1,23 @@
+using Demo.ApiClient2;
+using Demo.ApiClient2.Models.ApiModels;
+
 namespace AppMaui.Paginas;
 
 public partial class Chats : ContentPage
 {
-	public Chats()
+    private readonly DemoApiClientService _apiClient;
+    public Chats(DemoApiClientService apiClient)
 	{
 		InitializeComponent();
-	}
+        _apiClient = apiClient;
+
+    }
 
     private async void ImgBtnCasos_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new LoginOrSignUp());
+        var usuarioNuevo = new Usuario();
+        await Navigation.PushAsync(new SignUp(_apiClient, usuarioNuevo));
+
 
     }
 }

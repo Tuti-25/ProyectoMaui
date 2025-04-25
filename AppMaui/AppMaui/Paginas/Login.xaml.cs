@@ -7,14 +7,16 @@ namespace AppMaui.Paginas;
 public partial class Login : ContentPage
 {
 
-    public Login()
+    private readonly DemoApiClientService _apiClient;
+    public Login(DemoApiClientService apiClient)
     {
         InitializeComponent();
-       
+        _apiClient = apiClient;
     }
 
     private async void BtnLogin_Clicked(object sender, EventArgs e)
-    { 
-        await Navigation.PushAsync(new Casos());
+    {
+        await Navigation.PushAsync(new Casos(_apiClient));
+
     }
 }
