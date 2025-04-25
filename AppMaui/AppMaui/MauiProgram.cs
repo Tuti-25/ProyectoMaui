@@ -3,6 +3,7 @@ using Demo.ApiClient2.IoC;
 using AppMaui.Paginas;
 using MauiView;
 using Demo.ApiClient2.Models.ApiModels;
+using CommunityToolkit.Maui;
 
 namespace AppMaui
 {
@@ -13,6 +14,7 @@ namespace AppMaui
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -23,6 +25,9 @@ namespace AppMaui
             builder.Services.AddTransient<SignUp>();
             builder.Services.AddTransient<App>();
             builder.Services.AddSingleton<Usuario>();
+            builder.Services.AddSingleton<Login>();
+            builder.Services.AddTransient<Casos>();
+            builder.Services.AddTransient<CrearCaso>();
 
 
 #if DEBUG
