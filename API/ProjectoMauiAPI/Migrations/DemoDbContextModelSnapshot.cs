@@ -41,6 +41,10 @@ namespace ProjectoMauiAPI.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasColumnName("CedulaAgente");
 
+                    b.Property<int>("IdRol")
+                        .HasColumnType("int")
+                        .HasColumnName("IdRol");
+
                     b.Property<string>("NombreAgente")
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)")
@@ -53,33 +57,9 @@ namespace ProjectoMauiAPI.Migrations
 
                     b.HasKey("IdAgente");
 
-                    b.ToTable("Agentes");
-                });
-
-            modelBuilder.Entity("ProjectoMauiAPI.Models.Entities.AgenteRoles", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("IdAgente")
-                        .HasColumnType("int")
-                        .HasColumnName("IdAgente");
-
-                    b.Property<int>("IdRol")
-                        .HasColumnType("int")
-                        .HasColumnName("IdRol");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("IdAgente");
-
                     b.HasIndex("IdRol");
 
-                    b.ToTable("AgenteRoles");
+                    b.ToTable("Agentes");
                 });
 
             modelBuilder.Entity("ProjectoMauiAPI.Models.Entities.Archivo", b =>
@@ -438,21 +418,13 @@ namespace ProjectoMauiAPI.Migrations
                     b.ToTable("UsuarioGrupos");
                 });
 
-            modelBuilder.Entity("ProjectoMauiAPI.Models.Entities.AgenteRoles", b =>
+            modelBuilder.Entity("ProjectoMauiAPI.Models.Entities.Agente", b =>
                 {
-                    b.HasOne("ProjectoMauiAPI.Models.Entities.Agente", "Agente")
-                        .WithMany("AgenteRoles")
-                        .HasForeignKey("IdAgente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ProjectoMauiAPI.Models.Entities.Rol", "Rol")
-                        .WithMany("AgenteRoles")
+                        .WithMany("Agentes")
                         .HasForeignKey("IdRol")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Agente");
 
                     b.Navigation("Rol");
                 });
@@ -572,14 +544,9 @@ namespace ProjectoMauiAPI.Migrations
                     b.Navigation("Usuario");
                 });
 
-            modelBuilder.Entity("ProjectoMauiAPI.Models.Entities.Agente", b =>
-                {
-                    b.Navigation("AgenteRoles");
-                });
-
             modelBuilder.Entity("ProjectoMauiAPI.Models.Entities.Rol", b =>
                 {
-                    b.Navigation("AgenteRoles");
+                    b.Navigation("Agentes");
                 });
 #pragma warning restore 612, 618
         }

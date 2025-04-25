@@ -142,29 +142,34 @@
         </Grid>
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280"></ColumnDefinition>
-                <ColumnDefinition Width="80"></ColumnDefinition>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="80"/>
             </Grid.ColumnDefinitions>
-            <Editor Grid.Column="0"
-                    Margin="10,0,0,0"
-    x:Name="editorDescripcion"
-    Placeholder="Resumen del problema..."
-    AutoSize="TextChanges"
-    MaxLength="200"
-    BackgroundColor="Transparent"
-    TextColor="#8b8a8f"
-                    PlaceholderColor="#5a5a5c"
-    FontSize="20"
-    HeightRequest="50"
-                        Visual="Material">
-            </Editor>
-            <ImageButton Grid.Column="1"
-                Source="linux.png"
-                         HeightRequest="10"
-                         WidthRequest="10">
 
+            <ImageButton Grid.Column="1"
+                 Source="linux.png"
+                 HeightRequest="40"
+                 WidthRequest="40"
+                 Clicked="ImageButton_Clicked">
             </ImageButton>
+
+            <Picker x:Name="pickerAgentes"
+            Grid.Row="3"
+            SelectedItem="{Binding SelectedAgente}"
+                ItemDisplayBinding="{Binding Nombre}"
+                Title="Selecciona un Agente"
+            VerticalOptions="Center"
+            FontSize="20"
+            WidthRequest="270"
+            BackgroundColor="#2c2c2e"
+            HorizontalOptions="End">
+            </Picker>
         </Grid>
+
+
+
+
+
         <Grid Grid.Row="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="90"></RowDefinition>
