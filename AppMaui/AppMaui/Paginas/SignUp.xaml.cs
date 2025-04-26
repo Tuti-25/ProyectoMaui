@@ -67,4 +67,9 @@ public partial class SignUp : ContentPage
     {
         return Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
     }
+
+    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+
+    }
 }
