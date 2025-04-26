@@ -17,15 +17,14 @@
                 </VerticalStackLayout>
             </Frame>
 
-            <Button Text="👥 Invitar personas al sitio" BackgroundColor="Transparent" TextColor="White"/>
-            <Button Text="🔔 Notificaciones" BackgroundColor="Transparent" TextColor="White"/>
-            <Button Text="✉️ Enviar comentarios" BackgroundColor="Transparent" TextColor="White"/>
-            <Button Text="⭐ Calificarnos" BackgroundColor="Transparent" TextColor="White"/>
-            <Button Text="🆕 Novedades" BackgroundColor="Transparent" TextColor="White"/>
-            <Button Text="📦 Más apps de Atlassian" BackgroundColor="Transparent" TextColor="White"/>
-            <Button Text="📤 Compartir app con tu equipo" BackgroundColor="Transparent" TextColor="White"/>
-            <Button Text="⚙️ Ajustes" BackgroundColor="Transparent" TextColor="White"/>
-
+            <Button x:Name="BtnInvitar" Text="👥 Invitar personas al sitio" BackgroundColor="Transparent" TextColor="White"/>
+            <Button x:Name="BtnNotificaciones" Text="🔔 Notificaciones" BackgroundColor="Transparent" TextColor="White"/>
+            <Button x:Name="BtnComentarios" Text="✉️ Enviar comentarios" BackgroundColor="Transparent" TextColor="White"/>
+            <Button x:Name="BtnCalificar" Text="⭐ Calificarnos" BackgroundColor="Transparent" TextColor="White"/>
+            <Button x:Name="BtnNovedades" Text="🆕 Novedades" BackgroundColor="Transparent" TextColor="White"/>
+            <Button x:Name="BtnApps" Text="📦 Más apps de Atlassian" BackgroundColor="Transparent" TextColor="White"/>
+            <Button x:Name="BtnCompartir" Text="📤 Compartir app con tu equipo" BackgroundColor="Transparent" TextColor="White"/>
+            <Button x:Name="BtnAjustes" Text="⚙️ Ajustes" BackgroundColor="Transparent" TextColor="White"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>
