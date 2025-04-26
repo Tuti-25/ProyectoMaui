@@ -1,10 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using ProjectoMauiAPI.Data;
-using ProjectoMauiAPI.Models.Entities;
-using BCrypt.Net;
-using System.Text.Json;
-
+ using Microsoft.EntityFrameworkCore;
+ using ProjectoMauiAPI.Data;
+ using ProjectoMauiAPI.Models.Entities;
+ using BCrypt.Net;
+ using System.Text.Json;
 
 namespace ProjectoMauiAPI.Controllers
 {
@@ -42,6 +41,7 @@ namespace ProjectoMauiAPI.Controllers
                 return BadRequest("El correo ya está en uso.");
             }
 
+            // Encriptar la contraseña antes de guardarla
             usuario.ContrasenaUsuario = BCrypt.Net.BCrypt.HashPassword(usuario.ContrasenaUsuario);
 
             await _demoDbContext.Usuarios.AddAsync(usuario);
@@ -49,6 +49,7 @@ namespace ProjectoMauiAPI.Controllers
 
             return CreatedAtAction(nameof(GetById), new { idusuario = usuario.IdUsuario }, usuario);
         }
+
 
 
 
@@ -116,5 +117,8 @@ namespace ProjectoMauiAPI.Controllers
 
             return Ok(usuario);
         }
+
+
     }
 }
+    

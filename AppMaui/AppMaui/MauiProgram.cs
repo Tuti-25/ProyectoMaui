@@ -20,7 +20,7 @@ namespace AppMaui
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
             });
-            builder.Services.AddDemoApiClientService(x => x.ApiBaseAddress = "http://192.168.18.75:5151");
+            builder.Services.AddDemoApiClientService(x => x.ApiBaseAddress = "http://192.168.100.92:5151");
             builder.Services.AddTransient<LoginOrSignUp>();
             builder.Services.AddTransient<SignUp>();
             builder.Services.AddTransient<App>();
@@ -28,7 +28,6 @@ namespace AppMaui
             builder.Services.AddSingleton<Login>();
             builder.Services.AddTransient<Casos>();
             builder.Services.AddTransient<CrearCaso>();
-
 
 #if DEBUG
             builder.Logging.AddDebug();
