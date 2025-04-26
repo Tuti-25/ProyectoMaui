@@ -42,13 +42,13 @@ public partial class SignUp : ContentPage
             return;
         }
 
-        string contrasenaEncriptada = BCrypt.Net.BCrypt.HashPassword(contrasena);
 
         var nuevoUsuario = new Usuario
         {
             CorreoUsuario = correo,
-            ContrasenaUsuario = contrasenaEncriptada
+            ContrasenaUsuario = contrasena
         };
+
 
         await _apiClient.SaveUsuario(nuevoUsuario);
 
@@ -68,8 +68,9 @@ public partial class SignUp : ContentPage
         return Regex.IsMatch(correo, @"^[^@\s]+@[^@\s]+\.[^@\s]+$");
     }
 
-    private void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
     {
+        await Navigation.PushModalAsync(new LoginOrSignUp(_apiClient));
 
     }
 }

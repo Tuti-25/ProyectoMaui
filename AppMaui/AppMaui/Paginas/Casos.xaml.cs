@@ -25,7 +25,7 @@ public partial class Casos : ContentPage
     private async void BtnPerfil_Clicked(object sender, EventArgs e)
     {
         var usuarioNuevo = new Usuario();
-        await Navigation.PushAsync(new SignUp(_apiClient, usuarioNuevo));
+        await Navigation.PushModalAsync(new LoginOrSignUp(_apiClient));
 
     }
 

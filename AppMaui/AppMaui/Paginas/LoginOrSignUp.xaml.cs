@@ -55,7 +55,7 @@ public partial class LoginOrSignUp : ContentPage
         }
         else
         {
-            await DisplayAlert("Error", "ID o cedula del incorrectos", "OK");
+            await DisplayAlert("Error", "ID o cedula de incorrectos", "OK");
         }
     }
 }
