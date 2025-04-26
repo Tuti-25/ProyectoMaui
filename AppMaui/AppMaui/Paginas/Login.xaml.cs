@@ -29,6 +29,7 @@ public partial class Login : ContentPage
 
         if (usuario != null)
         {
+            UsuarioActual.UsuarioLogueado = usuario;
             await DisplayAlert("Bienvenido", $"Hola {usuario.NombreUsuario}", "Continuar");
             await Navigation.PushModalAsync(new Casos(_apiClient));
         }
@@ -36,8 +37,8 @@ public partial class Login : ContentPage
         {
             await DisplayAlert("Error", "Correo o contrasena incorrecta", "Intentar de nuevo");
         }
-       
-
     }
+
+
 
 }

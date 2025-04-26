@@ -3,99 +3,90 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMaui.Paginas.LoginOrSignUp"
              BackgroundColor="#212429"
-               NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False">
+
     <ScrollView>
-        <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="150" />
-            <RowDefinition Height="320" />
-            <RowDefinition Height="150" />
-            <RowDefinition Height="200" />
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="180" />
+                <RowDefinition Height="150" />
+            </Grid.RowDefinitions>
 
-        </Grid.RowDefinitions>
+            
+            <FlexLayout Grid.Row="0"
+                        Direction="Row"
+                        AlignItems="Center"
+                        JustifyContent="Center">
+                <Image Source="emergency_two.png"
+                       HeightRequest="60"
+                       WidthRequest="60"
+                       Margin="0,0,10,0"/>
+                <Label Text="CondoApp"
+                       TextColor="White"
+                       FontSize="28"
+                       FontAttributes="Bold"
+                       CharacterSpacing="1.2"/>
+            </FlexLayout>
 
-        <FlexLayout Grid.Row="0" 
-                    BackgroundColor="#212429" 
-                    Direction="Row" 
-                    AlignItems="Center" 
-                    JustifyContent="Center">
-            <Image Source="emergency_two.png" 
-                   HeightRequest="60" 
-                   WidthRequest="60">
-            </Image>
-            <Label Text="Salvatierra" 
-                   TextColor="White" 
-                   FontSize="25"
-                   Margin="4,0,0,0"
-                  FontAttributes="Bold"
-                   CharacterSpacing="1">
-            </Label>
-        </FlexLayout>
 
-        <FlexLayout Grid.Row="1"
-                    BackgroundColor="#212429" 
-                    Direction="Row"
-                    AlignItems="Center">
-        </FlexLayout>
+            <FlexLayout Grid.Row="1"
+                        Direction="Column"
+                        AlignItems="Center"
+                        JustifyContent="Center">
+            </FlexLayout>
 
-        <FlexLayout Grid.Row="2" 
-                    BackgroundColor="#212429"
-                    Direction="Column" 
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    >
-            <Button Text="Log In"
-                    Background="#ffffff"
-                    TextColor="#4781d1"
-                    FontSize="20"
-                    HeightRequest="30"
-                    WidthRequest="200"
-                    Padding="-20"
-                    Margin="0,12,0,8"
-                    x:Name="BtnLogIn"
-                    Clicked="BtnLogIn_Clicked">
-            </Button>
-            <Button Text="Sign In"
-                    x:Name="BtnSignUp"
-                    Background="#24272c"
-                    TextColor="#ffffffff"
-                    FontSize="20"
-                    HeightRequest="25"
-                    WidthRequest="200"
-                    BorderColor="#111"
-                    BorderWidth="2"
-                    Padding="-20"
-                    Clicked="BtnSignUp_Clicked"
-                    >
-            </Button>
-        </FlexLayout>
-            <FlexLayout Grid.Row="3" 
-                    BackgroundColor="#212429" 
-                    HorizontalOptions="Center"
-                    Direction="Row" 
-                    >
-                <Label Margin="0,3,0,0"
+           
+            <FlexLayout Grid.Row="2"
+                        Direction="Column"
+                        AlignItems="Center"
+                        JustifyContent="Center">
+                <Button Text="Log In"
+                        BackgroundColor="#4781D1"
+                        TextColor="White"
+                        FontSize="18"
+                        WidthRequest="250"
+                        HeightRequest="50"
+                        CornerRadius="12"
+                        x:Name="BtnLogIn"
+                        Clicked="BtnLogIn_Clicked"/>
+
+                <Button Text="Sign In"
+                        BackgroundColor="#2D3035"
+                        TextColor="White"
+                        FontSize="18"
+                        WidthRequest="250"
+                        HeightRequest="50"
+                        CornerRadius="12"
+                        BorderColor="#5b5e65"
+                        BorderWidth="1.5"
+                        x:Name="BtnSignUp"
+                        Clicked="BtnSignUp_Clicked"/>
+            </FlexLayout>
+
+          
+            <FlexLayout Grid.Row="3"
+                        Direction="Row"
+                        AlignItems="Center"
+                        JustifyContent="Center"
+                        Padding="10">
+                <Label HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
                        LineBreakMode="WordWrap"
-                       MaximumWidthRequest="200"
-                       HorizontalTextAlignment="Center"
-                       VerticalTextAlignment="Center">
+                       FontSize="11"
+                       WidthRequest="280">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="By signing up, you agree to the policy and rule 3.4, allowing us to collect your" 
-                                  TextColor="#5b5e65"
-                                  FontSize="10"
-                                  >
-                            </Span>
-                            <Span Text=" credit card information." 
-                                  TextColor="#555"
-                                        FontSize="11"
-                                  TextDecorations="Underline"
-                                  >
-                            </Span>
+                            <Span Text="By signing up, you agree to the policy and rule 3.4, allowing us to collect your "
+                                  TextColor="#7a7f87"/>
+                            <Span Text="credit card information."
+                                  TextColor="#4781D1"
+                                  TextDecorations="Underline"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
             </FlexLayout>
-    </Grid>
+        </Grid>
     </ScrollView>
 </ContentPage>
