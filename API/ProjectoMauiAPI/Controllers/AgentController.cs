@@ -38,8 +38,6 @@ namespace ProjectoMauiAPI.Controllers
         }
 
 
-
-
         [HttpGet("{id}")]
         public async Task<ActionResult<Agente>> GetAgente(int id)
         {
@@ -97,5 +95,30 @@ namespace ProjectoMauiAPI.Controllers
         {
             return _demoDbContext.Agentes.Any(e => e.IdAgente == id);
         }
+
+        [HttpGet("porrol/{idRol}")]
+        public async Task<ActionResult<List<Agente>>> GetAgentesPorRol(int idRol)
+        {
+            string rol = idRol == 1 ? "Medico" : idRol == 2 ? "Policia" : idRol == 3 ? "Bombero" : idRol == 4 ? "Constructor" : idRol == 5 ? "Administrador" : string.Empty;
+
+            if (string.IsNullOrEmpty(rol))
+            {
+                return NotFound("Rol no encontrado");
+            }
+
+            var agentesPorRol = await _demoDbContext.Agentes
+                .Where(a => a.Rol.TipoRol == rol)
+                .ToListAsync(); 
+
+            if (agentesPorRol == null || agentesPorRol.Count == 0)
+            {
+                return NotFound("No se encontraron agentes para este rol");
+            }
+
+            return Ok(agentesPorRol);
+        }
+
+
     }
+
 }

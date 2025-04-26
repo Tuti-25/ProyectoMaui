@@ -74,22 +74,6 @@ namespace Demo.ApiClient2
             return null;
         }
 
-        // CASOOOOOS
-
-
-        public async Task<List<Caso>?> GetCasos()
-        {
-            try
-            {
-                return await _httpClient.GetFromJsonAsync<List<Caso>?>("/api/Casos");
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"Request failed: {ex.Message}");
-                throw;
-            }
-        }
-
         public async Task SaveCaso(Caso caso)
         {
             try
@@ -126,9 +110,7 @@ namespace Demo.ApiClient2
             return null;
         }
 
-
-
-        // SEVERDIDAAAAA
+        // SEVERDIDAD
         public async Task<List<Severidad>?> GetSeveridades()
         {
             try
@@ -141,7 +123,8 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
-        //AGENTEEEEES
+
+        // AGENTES
         public async Task<Agente?> GetAgenteByIdYCedula(int idAgente, string cedulaAgente)
         {
             try
@@ -162,6 +145,7 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
+
         public async Task<List<Agente>> GetAgentesAsync()
         {
             try
@@ -188,9 +172,35 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
+        public async Task<List<Agente>> GetAgentesPorRol(int idRol)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"/api/Agent/porrol/{idRol}");
 
-        //ROLEEEEEES
+                if (response.IsSuccessStatusCode)
+                {
+                    var agentes = await response.Content.ReadFromJsonAsync<List<Agente>>();
+                    return agentes ?? new List<Agente>();
+                }
+                else
+                {
+                    Console.WriteLine($"Error al obtener agentes por rol: {response.StatusCode}");
+                    return new List<Agente>();
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Request failed: {ex.Message}");
+                throw;
+            }
+        }
 
+
+
+
+
+        // ROLES
         public async Task<List<Rol>> GetTiposDeRolesAsync()
         {
             var response = await _httpClient.GetAsync("/api/rolecontroller1");
@@ -219,8 +229,24 @@ namespace Demo.ApiClient2
             return new List<Rol>();
         }
 
+        // CASOS
 
+public async Task<(bool, string)> CrearCasoAsync(Caso caso)
+    {
+        var content = new StringContent(JsonSerializer.Serialize(caso), Encoding.UTF8, "application/json");
+        var response = await _httpClient.PostAsync("/api/case", content);
 
-
+        if (response.IsSuccessStatusCode)
+        {
+            var responseContent = await response.Content.ReadAsStringAsync();
+            return (true, responseContent);
+        }
+        else
+        {
+            var errorContent = await response.Content.ReadAsStringAsync();
+            return (false, errorContent);
+        }
     }
+
+}
 }

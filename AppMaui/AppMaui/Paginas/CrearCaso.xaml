@@ -165,8 +165,7 @@
             <ImageButton Grid.Column="1"
                  Source="linux.png"
                  HeightRequest="40"   
-                 WidthRequest="40"
-                 Clicked="ImageButton_Clicked" />
+                 WidthRequest="40"/>
         </Grid>
 
         <Grid Grid.Row="3">
