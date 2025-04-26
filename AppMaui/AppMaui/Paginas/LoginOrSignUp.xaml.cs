@@ -51,7 +51,7 @@ public partial class LoginOrSignUp : ContentPage
         if (resultado != null)
         {
             await DisplayAlert("Bienvenido", $"¡Bienvenido {resultado.NombreAgente}!", "Continuar");
-            await Navigation.PushModalAsync(new Casos(_apiClient));
+            await Navigation.PushModalAsync(new Menu());
         }
         else
         {

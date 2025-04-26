@@ -6,11 +6,11 @@ namespace AppMaui
 {
     public partial class App : Application
     {
-        public App(CrearCaso crearcaso)
+        public App(LoginOrSignUp loginOrSignUp)
         {
             InitializeComponent();
 
-            MainPage = crearcaso;
+            MainPage = loginOrSignUp;
 
         }
     }

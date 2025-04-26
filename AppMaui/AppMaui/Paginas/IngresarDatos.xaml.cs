@@ -66,6 +66,6 @@ public partial class IngresarDatos : ContentPage
         await _apiClient.UpdateUsuario(_usuario);
 
         await DisplayAlert($"Bienvenido {_usuario.NombreUsuario}.", "Ya puedes quejarte con libertad", "Aceptar");
-        await Navigation.PushModalAsync(new Casos(_apiClient));
+        await Navigation.PushModalAsync(new Menu());
     }
 }

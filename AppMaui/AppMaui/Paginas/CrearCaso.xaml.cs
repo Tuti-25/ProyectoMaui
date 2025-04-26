@@ -12,6 +12,7 @@ public partial class CrearCaso : ContentPage
     private int _idSeveridadSeleccionada = 0;
     private readonly Usuario _usuarioLogueado;
 
+
     public CrearCaso(DemoApiClientService apiClient)
     {
         InitializeComponent();

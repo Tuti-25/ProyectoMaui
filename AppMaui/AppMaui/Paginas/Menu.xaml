@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMaui.Paginas.Menu"
+              BackgroundColor="Black"
+             Title="Menu">
+
+    <Grid RowDefinitions="*,Auto">
+
+        <!-- Contenido principal -->
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout Padding="20" Spacing="10">
+                <!-- No sale el mensaje de bienvenida porque en el xaml.cs se tiene que aclarar con la base de datos -->
+                <Label x:Name="lblBienvenida" FontSize="20" FontAttributes="Bold" TextColor="White"/>
+
+                <!-- Sección de consejos -->
+                <Label Text="Consejo de la App" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+
+                <Frame BackgroundColor="#222" Padding="10" CornerRadius="10" HorizontalOptions="Fill">
+                    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center" Spacing="5">
+                        <Label x:Name="lblConsejo" FontSize="16" TextColor="White"
+                               HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+
+                        <Button Text="Ver más consejos" BackgroundColor="Transparent" TextColor="#3399FF" Clicked="OnVerMasConsejosClicked" />
+                    </VerticalStackLayout>
+                </Frame>
+                <!-- Muestra de reportes -->
+                <Label Text="Reportes recientes" FontSize="18" FontAttributes="Bold" TextColor="White"/>
+                <Label Text="EN EL ÚLTIMO MES" FontSize="12" TextColor="Gray"/>
+
+                <Frame BackgroundColor="#222" Padding="10" CornerRadius="10">
+                    <HorizontalStackLayout>
+                        <CheckBox IsChecked="False" Color="#3399FF"/>
+                        <VerticalStackLayout>
+                            <Label Text="Cañería rota" FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="CASA-6" FontSize="12" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Frame BackgroundColor="#222" Padding="10" CornerRadius="10">
+                    <HorizontalStackLayout>
+                        <CheckBox IsChecked="False" Color="#3399FF"/>
+                        <VerticalStackLayout>
+                            <Label Text="Auto estacionado en nuestra puerta" FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="CASA-6" FontSize="12" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <Label Text="MÁS DE UN MES ATRÁS" FontSize="12" TextColor="Gray"/>
+                <Frame BackgroundColor="#222" Padding="10" CornerRadius="10">
+                    <HorizontalStackLayout>
+                        <CheckBox IsChecked="True" Color="#3399FF"/>
+                        <VerticalStackLayout>
+                            <Label Text="Muro mal pintado" FontSize="16" FontAttributes="Bold" TextColor="White"/>
+                            <Label Text="CASA-6" FontSize="12" TextColor="Gray"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </Frame>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Parte inferior /botones -->
+
+        <Grid Grid.Row="1" BackgroundColor="#222" Padding="10"
+              VerticalOptions="End" HorizontalOptions="Fill"
+              HeightRequest="60">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center">
+                <ImageButton x:Name="btnHome" Source="homeblue.png" Clicked="OnNavButtonClicked" HeightRequest="30" WidthRequest="30" Scale="0.8" />
+                <Label x:Name="lblHome" Text="Home" FontSize="10" TextColor="#5a5a5a" HorizontalOptions="Center" FontAttributes="Bold" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center">
+                <ImageButton x:Name="btnCasos" Source="casos.png" Clicked="OnNavButtonClicked" HeightRequest="30" WidthRequest="30" Scale="0.8" />
+                <Label x:Name="lblCasos" Text="Casos" FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" >
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped">
+                            
+                        </TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="2" HorizontalOptions="Center">
+                <ImageButton x:Name="btnChat" Source="chat.png" Clicked="OnNavButtonClicked" HeightRequest="30" WidthRequest="30" Scale="0.8" />
+                <Label x:Name="lblChat" Text="Chat" FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Column="3" HorizontalOptions="Center">
+                <ImageButton x:Name="btnNotificacion" Source="notificacion.png" Clicked="OnNavButtonClicked" HeightRequest="30" WidthRequest="30" Scale="0.8" />
+                <Label x:Name="lblNotificacion" Text="Notificaciones" FontSize="10" TextColor="#8f8e94" HorizontalOptions="Center" FontAttributes="Bold" />
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+
+</ContentPage>
