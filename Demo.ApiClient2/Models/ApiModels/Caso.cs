@@ -17,7 +17,6 @@ namespace Demo.ApiClient2.Models.ApiModels
             public DateTime? FechaActualizacion { get; set; }
 
             public Usuario? Usuario { get; set; }
-            public Agente? Agente { get; set; }
             public Severidad? Severidad { get; set; }
             public EstadoCaso? EstadoCaso { get; set; }
         }

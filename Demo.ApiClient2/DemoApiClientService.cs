@@ -9,6 +9,7 @@ using System;
 using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using BCrypt.Net;
 
 namespace Demo.ApiClient2
 {
@@ -19,7 +20,7 @@ namespace Demo.ApiClient2
         public DemoApiClientService(ApiClientOptions apiClientOptions)
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new System.Uri(apiClientOptions.ApiBaseAddress);
+            _httpClient.BaseAddress = new Uri(apiClientOptions.ApiBaseAddress);
         }
 
         public async Task<List<Usuario>?> GetUsuarios()
@@ -34,6 +35,7 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
+
         public async Task<Usuario?> GetById(int idusuario)
         {
             return await _httpClient.GetFromJsonAsync<Usuario?>($"/api/User/{idusuario}");
@@ -53,8 +55,6 @@ namespace Demo.ApiClient2
         {
             await _httpClient.DeleteAsync($"/api/User/{idusuario}");
         }
-
-
         public async Task<Usuario?> BuscarUsuarioPorCorreo(string correo)
         {
             var usuarios = await GetUsuarios();
@@ -73,14 +73,9 @@ namespace Demo.ApiClient2
             return null;
         }
 
-        public async Task<Usuario?> ValidarCredenciales(string correo, string contrasena)
-        {
-            var usuarios = await GetUsuarios();
-            return usuarios.FirstOrDefault(u => u.CorreoUsuario == correo && u.ContrasenaUsuario == contrasena);
-        }
+        // CASOOOOOS
 
 
-        //CASOOOOO
         public async Task<List<Caso>?> GetCasos()
         {
             try
@@ -116,7 +111,23 @@ namespace Demo.ApiClient2
             }
         }
 
-        //SEVERIDAAAAAAD
+        public async Task<Usuario?> ValidarCredenciales(string correo, string contrasena)
+        {
+            var loginData = new { Correo = correo, Contrasena = contrasena };
+
+            var response = await _httpClient.PostAsJsonAsync("api/User/login", loginData);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<Usuario>();
+            }
+
+            return null;
+        }
+
+
+
+        // SEVERDIDAAAAA
         public async Task<List<Severidad>?> GetSeveridades()
         {
             try
@@ -129,6 +140,5 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
-
     }
 }
