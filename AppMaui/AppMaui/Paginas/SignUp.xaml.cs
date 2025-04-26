@@ -42,13 +42,13 @@ public partial class SignUp : ContentPage
             return;
         }
 
-        string contrasenaEncriptada = BCrypt.Net.BCrypt.HashPassword(contrasena);
 
         var nuevoUsuario = new Usuario
         {
             CorreoUsuario = correo,
-            ContrasenaUsuario = contrasenaEncriptada
+            ContrasenaUsuario = contrasena
         };
+
 
         await _apiClient.SaveUsuario(nuevoUsuario);
 
