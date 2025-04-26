@@ -39,6 +39,9 @@ public partial class Login : ContentPage
         }
     }
 
+    private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
+    {
+        await Navigation.PushModalAsync(new LoginOrSignUp(_apiClient));
 
-
+    }
 }

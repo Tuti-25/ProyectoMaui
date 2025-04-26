@@ -140,5 +140,27 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
+        //AGENTEEEEES
+        public async Task<Agente?> GetAgenteByIdYCedula(int idAgente, string cedulaAgente)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"/api/Agent/validate/{idAgente}/{cedulaAgente}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return await response.Content.ReadFromJsonAsync<Agente>();
+                }
+
+                Console.WriteLine($"Error al validar agente: {response.StatusCode}");
+                return null;
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Request failed: {ex.Message}");
+                throw;
+            }
+        }
+
     }
 }
