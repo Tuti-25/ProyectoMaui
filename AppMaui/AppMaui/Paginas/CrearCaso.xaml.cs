@@ -2,6 +2,7 @@ using AppMaui.Popups;
 using CommunityToolkit.Maui.Views;
 using Demo.ApiClient2;
 using Demo.ApiClient2.Models.ApiModels;
+using System.Diagnostics;
 
 namespace AppMaui.Paginas;
 
@@ -17,20 +18,9 @@ public partial class CrearCaso : ContentPage
         _apiClient = apiClient;
     }
 
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        var usuario = UsuarioActual.UsuarioLogueado;
-
-        if (usuario != null)
-        {
-            LblNombreCreadorCaso.Text = $"{usuario.NombreUsuario} {usuario.ApellidoUsuario}";
-        }
-    }
-
     private async void BtnCancelar_Clicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Casos(_apiClient));
+        await Navigation.PushModalAsync(new Casos(_apiClient));
     }
 
     private async void TapGestureRecognizer_Tapped(object sender, TappedEventArgs e)
@@ -62,8 +52,35 @@ public partial class CrearCaso : ContentPage
         }
     }
 
-
     private void ImageButton_Clicked(object sender, EventArgs e)
+    {
+
+    }
+
+    protected override async void OnAppearing()
+    {
+        base.OnAppearing();
+
+        var usuario = UsuarioActual.UsuarioLogueado;
+
+        if (usuario != null)
+        {
+            LblNombreCreadorCaso.Text = $"{usuario.NombreUsuario} {usuario.ApellidoUsuario}";
+        }
+
+        var roles = await _apiClient.GetTiposDeRolesAsync();
+
+        if (roles != null && roles.Any())
+        {
+            PickerRoles.ItemsSource = roles;
+        }
+        else
+        {
+            Debug.WriteLine("No se encontraron roles o la lista está vacía.");
+        }
+    }
+
+    private void BtnCrear_Clicked(object sender, EventArgs e)
     {
 
     }

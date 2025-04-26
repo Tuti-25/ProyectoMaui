@@ -6,10 +6,10 @@
              NavigationPage.HasNavigationBar="False">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80" />
+            <RowDefinition Height="120" />
             <RowDefinition Height="70" />
             <RowDefinition Height="80" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="200" />
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Margin="0,0,0,30">
             <Grid.ColumnDefinitions>
@@ -34,13 +34,15 @@
                    FontAttributes="Bold"
                    FontSize="17" />
             <Button Grid.Column="2"
+                    x:Name="BtnCrear"
                     Text="Crear"
                     TextColor="#8b8a8f"
                     Background="Transparent"
                     HeightRequest="10"
                     WidthRequest="100"
                     HorizontalOptions="End"
-                    FontAttributes="Bold" />
+                    FontAttributes="Bold"
+                    Clicked="BtnCrear_Clicked"/>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -146,34 +148,29 @@
                 <ColumnDefinition Width="80"/>
             </Grid.ColumnDefinitions>
 
+            <Picker
+        Grid.Column="0"
+                x:Name="PickerRoles"
+        ItemDisplayBinding="{Binding TipoRol}"
+                Title="Selecciona el tipo de agente"
+        VerticalOptions="Center"
+        FontSize="20"
+        WidthRequest="265"
+        BackgroundColor="#2c2c2e"
+        HorizontalOptions="End" 
+                TextColor="#8b8a8f"
+                FontAttributes="Bold"
+
+                HorizontalTextAlignment="Center"/>
             <ImageButton Grid.Column="1"
                  Source="linux.png"
-                 HeightRequest="40"
+                 HeightRequest="40"   
                  WidthRequest="40"
-                 Clicked="ImageButton_Clicked">
-            </ImageButton>
-
-            <Picker x:Name="pickerAgentes"
-            Grid.Row="3"
-            SelectedItem="{Binding SelectedAgente}"
-                ItemDisplayBinding="{Binding Nombre}"
-                Title="Selecciona un Agente"
-            VerticalOptions="Center"
-            FontSize="20"
-            WidthRequest="270"
-            BackgroundColor="#2c2c2e"
-            HorizontalOptions="End">
-            </Picker>
+                 Clicked="ImageButton_Clicked" />
         </Grid>
-
-
-
-
 
         <Grid Grid.Row="3">
             <Grid.RowDefinitions>
-                <RowDefinition Height="90"></RowDefinition>
-                <RowDefinition Height="100"></RowDefinition>
                 <RowDefinition Height="100"></RowDefinition>
             </Grid.RowDefinitions>
             <Frame Grid.Row="0"
@@ -202,64 +199,10 @@
                      BackgroundColor="Transparent"
                      TextColor="#8b8a8f"
                      PlaceholderColor="#5a5a5c"
-                     FontSize="12">
+                     FontSize="12"
+                                x:Name="EditorDescripcion">
                         </Editor>
                     </VerticalStackLayout>
-                </Grid>
-            </Frame>
-            <Frame Grid.Row="1"
-                   BackgroundColor="#2c2c2e"
-                   VerticalOptions="Start"
-                   Margin="15,20,30,0"
-                   BorderColor="Transparent">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="90"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label 
-                        Grid.Column="0"
-                        Text="Documentos"
-                       TextColor="#ffffff"
-                       FontSize="15"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold">
-                    </Label>
-                    <Label Grid.Column="1"
-                               Text="↓"
-                               TextColor="#868687"
-                               FontSize="15"
-                               VerticalTextAlignment="Center"
-                               HorizontalOptions="End"
-                               Margin="0,0,5,0" />
-
-                </Grid>
-            </Frame>
-            <Frame Grid.Row="2"
-                   BackgroundColor="#2c2c2e"
-                   VerticalOptions="Start"
-                   Margin="15,0,30,0"
-                   BorderColor="Transparent">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="130"></ColumnDefinition>
-                        <ColumnDefinition Width="*"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Label 
-                        Grid.Column="0"
-                        Text="Mas informacion"
-                       TextColor="#ffffff"
-                       FontSize="15"
-                        HorizontalTextAlignment="Center"
-                        FontAttributes="Bold">
-                    </Label>
-                    <Label Grid.Column="1"
-                               Text="↓"
-                               TextColor="#868687"
-                               FontSize="15"
-                               VerticalTextAlignment="Center"
-                               HorizontalOptions="End"
-                               Margin="0,0,5,0" />
                 </Grid>
             </Frame>
         </Grid>

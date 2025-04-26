@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using BCrypt.Net;
+using System.Diagnostics;
 
 namespace Demo.ApiClient2
 {
@@ -161,6 +162,65 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
+        public async Task<List<Agente>> GetAgentesAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("http://192.168.100.92:5151/api/Agent");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var agentes = JsonSerializer.Deserialize<List<Agente>>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    }) ?? new List<Agente>();
+
+                    return agentes;
+                }
+
+                Console.WriteLine($"Error al obtener agentes: {response.StatusCode}");
+                return new List<Agente>();
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Request failed: {ex.Message}");
+                throw;
+            }
+        }
+
+        //ROLEEEEEES
+
+        public async Task<List<Rol>> GetTiposDeRolesAsync()
+        {
+            var response = await _httpClient.GetAsync("/api/rolecontroller1");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var roles = await response.Content.ReadFromJsonAsync<List<Rol>>();
+                if (roles != null && roles.Count > 0)
+                {
+                    foreach (var rol in roles)
+                    {
+                        Debug.WriteLine($"Rol: {rol.TipoRol}");
+                    }
+                    return roles;
+                }
+                else
+                {
+                    Debug.WriteLine("No se encontraron roles.");
+                }
+            }
+            else
+            {
+                Debug.WriteLine($"Error en la respuesta: {response.StatusCode}");
+            }
+
+            return new List<Rol>();
+        }
+
+
+
 
     }
 }
