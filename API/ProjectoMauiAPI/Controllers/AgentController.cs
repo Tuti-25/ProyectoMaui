@@ -20,12 +20,23 @@ namespace ProjectoMauiAPI.Controllers
         {
             _demoDbContext = demoDbContext;
         }
-
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Agente>>> GetAgentes()
+        public async Task<ActionResult<IEnumerable<object>>> GetAgentes()
         {
-            return await _demoDbContext.Agentes.Include(a => a.Rol).ToListAsync();
+            var agentes = await _demoDbContext.Agentes
+                .Include(a => a.Rol)
+                .OrderBy(a => a.Rol.TipoRol)
+                .Select(a => new
+                {
+                    a.NombreAgente,
+                    a.ApellidoAgente,
+                    TipoRol = a.Rol.TipoRol
+                })
+                .ToListAsync();
+
+            return Ok(agentes);
         }
+
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Agente>> GetAgente(int id)
@@ -64,34 +75,6 @@ namespace ProjectoMauiAPI.Controllers
             return CreatedAtAction(nameof(GetAgente), new { id = agente.IdAgente }, agente);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutAgente(int id, Agente agente)
-        {
-            if (id != agente.IdAgente)
-            {
-                return BadRequest("ID del agente no coincide");
-            }
-
-            _demoDbContext.Entry(agente).State = EntityState.Modified;
-
-            try
-            {
-                await _demoDbContext.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AgenteExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return Ok();
-        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAgente(int id)
@@ -112,5 +95,30 @@ namespace ProjectoMauiAPI.Controllers
         {
             return _demoDbContext.Agentes.Any(e => e.IdAgente == id);
         }
+
+        [HttpGet("porrol/{idRol}")]
+        public async Task<ActionResult<List<Agente>>> GetAgentesPorRol(int idRol)
+        {
+            string rol = idRol == 1 ? "Medico" : idRol == 2 ? "Policia" : idRol == 3 ? "Bombero" : idRol == 4 ? "Constructor" : idRol == 5 ? "Administrador" : string.Empty;
+
+            if (string.IsNullOrEmpty(rol))
+            {
+                return NotFound("Rol no encontrado");
+            }
+
+            var agentesPorRol = await _demoDbContext.Agentes
+                .Where(a => a.Rol.TipoRol == rol)
+                .ToListAsync(); 
+
+            if (agentesPorRol == null || agentesPorRol.Count == 0)
+            {
+                return NotFound("No se encontraron agentes para este rol");
+            }
+
+            return Ok(agentesPorRol);
+        }
+
+
     }
+
 }

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using BCrypt.Net;
+using System.Diagnostics;
 
 namespace Demo.ApiClient2
 {
@@ -73,22 +74,6 @@ namespace Demo.ApiClient2
             return null;
         }
 
-        // CASOOOOOS
-
-
-        public async Task<List<Caso>?> GetCasos()
-        {
-            try
-            {
-                return await _httpClient.GetFromJsonAsync<List<Caso>?>("/api/Casos");
-            }
-            catch (HttpRequestException ex)
-            {
-                Console.WriteLine($"Request failed: {ex.Message}");
-                throw;
-            }
-        }
-
         public async Task SaveCaso(Caso caso)
         {
             try
@@ -125,9 +110,7 @@ namespace Demo.ApiClient2
             return null;
         }
 
-
-
-        // SEVERDIDAAAAA
+        // SEVERDIDAD
         public async Task<List<Severidad>?> GetSeveridades()
         {
             try
@@ -140,7 +123,8 @@ namespace Demo.ApiClient2
                 throw;
             }
         }
-        //AGENTEEEEES
+
+        // AGENTES
         public async Task<Agente?> GetAgenteByIdYCedula(int idAgente, string cedulaAgente)
         {
             try
@@ -162,5 +146,107 @@ namespace Demo.ApiClient2
             }
         }
 
+        public async Task<List<Agente>> GetAgentesAsync()
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync("http://192.168.100.92:5151/api/Agent");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var json = await response.Content.ReadAsStringAsync();
+                    var agentes = JsonSerializer.Deserialize<List<Agente>>(json, new JsonSerializerOptions
+                    {
+                        PropertyNameCaseInsensitive = true
+                    }) ?? new List<Agente>();
+
+                    return agentes;
+                }
+
+                Console.WriteLine($"Error al obtener agentes: {response.StatusCode}");
+                return new List<Agente>();
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Request failed: {ex.Message}");
+                throw;
+            }
+        }
+        public async Task<List<Agente>> GetAgentesPorRol(int idRol)
+        {
+            try
+            {
+                var response = await _httpClient.GetAsync($"/api/Agent/porrol/{idRol}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var agentes = await response.Content.ReadFromJsonAsync<List<Agente>>();
+                    return agentes ?? new List<Agente>();
+                }
+                else
+                {
+                    Console.WriteLine($"Error al obtener agentes por rol: {response.StatusCode}");
+                    return new List<Agente>();
+                }
+            }
+            catch (HttpRequestException ex)
+            {
+                Console.WriteLine($"Request failed: {ex.Message}");
+                throw;
+            }
+        }
+
+
+
+
+
+        // ROLES
+        public async Task<List<Rol>> GetTiposDeRolesAsync()
+        {
+            var response = await _httpClient.GetAsync("/api/rolecontroller1");
+
+            if (response.IsSuccessStatusCode)
+            {
+                var roles = await response.Content.ReadFromJsonAsync<List<Rol>>();
+                if (roles != null && roles.Count > 0)
+                {
+                    foreach (var rol in roles)
+                    {
+                        Debug.WriteLine($"Rol: {rol.TipoRol}");
+                    }
+                    return roles;
+                }
+                else
+                {
+                    Debug.WriteLine("No se encontraron roles.");
+                }
+            }
+            else
+            {
+                Debug.WriteLine($"Error en la respuesta: {response.StatusCode}");
+            }
+
+            return new List<Rol>();
+        }
+
+        // CASOS
+
+public async Task<(bool, string)> CrearCasoAsync(Caso caso)
+    {
+        var content = new StringContent(JsonSerializer.Serialize(caso), Encoding.UTF8, "application/json");
+        var response = await _httpClient.PostAsync("/api/case", content);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var responseContent = await response.Content.ReadAsStringAsync();
+            return (true, responseContent);
+        }
+        else
+        {
+            var errorContent = await response.Content.ReadAsStringAsync();
+            return (false, errorContent);
+        }
     }
+
+}
 }
